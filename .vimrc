@@ -275,7 +275,13 @@ set diffopt=filler,iwhite
 set stal=2
 syntax on
 
+set formatoptions=cro
+
 if exists('+colorcolumn')
     set colorcolumn=80 
     endif
 
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_c_check_header = 0
+let g:syntastic_no_include_search = 1
+let g:syntastic_remove_include_errors = 1
