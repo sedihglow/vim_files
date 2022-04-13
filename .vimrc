@@ -281,6 +281,8 @@ if exists('+colorcolumn')
     set colorcolumn=80 
     endif
 
+autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> %s/\s\+$//e
+
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_c_check_header = 0
 let g:syntastic_no_include_search = 1
