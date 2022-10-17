@@ -237,7 +237,7 @@ set linebreak
 
 set maxmem=100000 "24MB
 set noautowrite
-set expandtab
+"set expandtab
 set ruler
 set nospell
 set nohidden
