@@ -32,10 +32,10 @@ hi SpecialKey ctermfg=244 ctermbg=236
 
 hi pythonOperator ctermfg=103
 
-hi Search cterm=NONE
+hi Search cterm=NONE	
 
-
-
+    	
+	
 
 " basic highlight groups (:help highlight-groups) {{{1
 
@@ -72,7 +72,7 @@ hi TabLineFill ctermfg=grey ctermbg=white cterm=NONE
 "hi TabLineSel ctermfg=black ctermbg=green cterm=NONE
 hi TabLineSel ctermfg=green ctermbg=black term=bold
 "hi TabLineSel term=bold cterm=bold
-"hi TabLineFill term=reverse cterm=reverse
+"hi TabLineFill term=reverse cterm=reverse 
 "hi TabLine term=underline cterm=underline ctermfg=15 ctermbg=242
 
 "hi Menu
@@ -100,65 +100,65 @@ hi ErrorMsg ctermfg=white ctermbg=red cterm=bold
 hi WarningMsg ctermfg=yellow ctermbg=NONE cterm=bold
 
 hi Directory term=bold ctermfg=4 "{{{
-hi ErrorMsg term=standout ctermfg=15 ctermbg=1
-hi IncSearch term=reverse cterm=reverse
+hi ErrorMsg term=standout ctermfg=15 ctermbg=1  
+hi IncSearch term=reverse cterm=reverse 
 hi Search term=NONE ctermfg=255 ctermbg=135
-hi MoreMsg term=bold ctermfg=2
-hi ModeMsg term=bold cterm=bold
-hi LineNr term=underline ctermfg=244 ctermbg=232
-hi Question term=standout ctermfg=2
-hi StatusLine term=bold,reverse cterm=italic ctermfg=253 ctermbg=238
-hi StatusLineNC term=reverse cterm=reverse ctermfg=246 ctermbg=238
-hi VertSplit term=reverse cterm=reverse ctermfg=238 ctermbg=238
-hi Title term=bold cterm=bold ctermfg=254
-hi Visual term=reverse ctermfg=254 ctermbg=4
+hi MoreMsg term=bold ctermfg=2  
+hi ModeMsg term=bold cterm=bold 
+hi LineNr term=underline ctermfg=244 ctermbg=232  
+hi Question term=standout ctermfg=2  
+hi StatusLine term=bold,reverse cterm=italic ctermfg=253 ctermbg=238   
+hi StatusLineNC term=reverse cterm=reverse ctermfg=246 ctermbg=238  
+hi VertSplit term=reverse cterm=reverse ctermfg=238 ctermbg=238  
+hi Title term=bold cterm=bold ctermfg=254  
+hi Visual term=reverse ctermfg=254 ctermbg=4  
 hi VisualNOS term=bold,underline cterm=bold,underline
-hi WarningMsg term=standout ctermfg=1
-hi WildMenu term=standout ctermfg=0 ctermbg=11
+hi WarningMsg term=standout ctermfg=1 
+hi WildMenu term=standout ctermfg=0 ctermbg=11  
 hi Folded term=standout cterm=BOLD ctermfg=7 ctermbg=27
 hi FoldColumn term=NONE cterm=NONE ctermfg=75 ctermbg=16
 hi IncSearch term=bold,underline cterm=bold,underline ctermfg=7 ctermbg=9
-hi DiffAdd term=bold ctermbg=12
-hi DiffChange term=bold ctermbg=13
-hi DiffDelete term=bold ctermfg=12 ctermbg=14
-hi DiffText term=reverse cterm=bold ctermbg=9
-hi SpellBad term=reverse ctermbg=9
-hi SpellCap term=reverse ctermbg=12
-hi SpellRare term=reverse ctermbg=13
-hi SpellLocal term=underline ctermbg=14
-hi Pmenu ctermfg=255 ctermbg=238
-hi PmenuSel ctermfg=0 ctermbg=148
-hi PmenuSbar ctermbg=7
-hi PmenuThumb cterm=reverse
-hi TabLine term=underline cterm=underline ctermfg=0 ctermbg=7
-hi TabLineSel term=bold cterm=bold
-hi TabLineFill term=reverse cterm=reverse
+hi DiffAdd term=bold ctermbg=12 
+hi DiffChange term=bold ctermbg=13 
+hi DiffDelete term=bold ctermfg=12 ctermbg=14   
+hi DiffText term=reverse cterm=bold ctermbg=9  
+hi SpellBad term=reverse ctermbg=9  
+hi SpellCap term=reverse ctermbg=12  
+hi SpellRare term=reverse ctermbg=13  
+hi SpellLocal term=underline ctermbg=14  
+hi Pmenu ctermfg=255 ctermbg=238  
+hi PmenuSel ctermfg=0 ctermbg=148  
+hi PmenuSbar ctermbg=7 
+hi PmenuThumb cterm=reverse 
+hi TabLine term=underline cterm=underline ctermfg=0 ctermbg=7  
+hi TabLineSel term=bold cterm=bold 
+hi TabLineFill term=reverse cterm=reverse 
 hi CursorLine term=underline cterm=bold ctermbg=234
-hi Cursor ctermbg=241
-hi MatchParen term=reverse cterm=bold ctermfg=157 ctermbg=237
-hi Error term=reverse ctermfg=15 ctermbg=9
+hi Cursor ctermbg=241 
+hi MatchParen term=reverse cterm=bold ctermfg=157 ctermbg=237   
+hi Error term=reverse ctermfg=15 ctermbg=9  
 
 
 
 
 
 " :hi TabLineSel|hi TabLineFill|hi TabLine
-"hi TabLineSel term=bold cterm=bold
-"hi TabLineFill term=reverse cterm=reverse
-"hi TabLine term=underline cterm=underline ctermfg=15 ctermbg=242
+"hi TabLineSel term=bold cterm=bold 
+"hi TabLineFill term=reverse cterm=reverse 
+"hi TabLine term=underline cterm=underline ctermfg=15 ctermbg=242 
 hi ExtraWhitespace ctermbg=red
-hi Comment term=none ctermfg=darkgrey
-hi Constant term=underline ctermfg=Magenta
-hi Special term=bold ctermfg=DarkMagenta
-hi Identifier term=underline cterm=bold ctermfg=Cyan
-hi Statement term=bold ctermfg=Yellow
-hi PreProc term=underline ctermfg=LightBlue
-hi Type term=underline ctermfg=LightGreen
-hi Repeat term=underline ctermfg=White
-hi Operator ctermfg=Red
-hi Ignore ctermfg=black
-hi Error term=reverse ctermbg=Red ctermfg=White
-hi Todo term=standout ctermbg=Yellow ctermfg=Black
+hi Comment term=none ctermfg=darkgrey 
+hi Constant term=underline ctermfg=Magenta 
+hi Special term=bold ctermfg=DarkMagenta 
+hi Identifier term=underline cterm=bold ctermfg=Cyan 
+hi Statement term=bold ctermfg=Yellow 
+hi PreProc term=underline ctermfg=LightBlue 
+hi Type term=underline ctermfg=LightGreen 
+hi Repeat term=underline ctermfg=White 
+hi Operator ctermfg=Red 
+hi Ignore ctermfg=black 
+hi Error term=reverse ctermbg=Red ctermfg=White 
+hi Todo term=standout ctermbg=Yellow ctermfg=Black 
 
 
 
@@ -188,12 +188,12 @@ hi Number ctermfg=81
 hi Special ctermfg=81
 hi PreProc ctermfg=230
 " Code-specific colors
-
+ 
 
 " SYNTAX HIGHLIGHTING GROUPS (:HELP GROUP-NAME) {{{2
 hi FoldColumn ctermbg=0 ctermfg=2
 hi Folded ctermbg=0 ctermfg=2
-hi NonText cterm=NONE ctermfg=NONE
+hi NonText cterm=NONE ctermfg=NONE 
 hi StatusLine ctermfg=black ctermbg=White cterm=bold
 hi StatusLineNC ctermfg=White ctermbg=green cterm=NONE
 hi CursorLine cterm=bold term=bold
@@ -222,9 +222,9 @@ set undolevels=50
 set updatecount=250
 set whichwrap+=b,s,<,>,h,l,[,]
 set nowrap
-set autoindent
+set autoindent 
 set smartindent
-set autoread
+set autoread 
 "set backspace=indent,eol,start
 set cmdheight=1
 "set complete=.,w,b,u,U,t,i,d
@@ -237,7 +237,7 @@ set linebreak
 
 set maxmem=100000 "24MB
 set noautowrite
-"set expandtab
+set expandtab
 set ruler
 set nospell
 set nohidden
@@ -278,20 +278,11 @@ syntax on
 set formatoptions=cro
 
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=80 
     endif
 
-"To enable file type detection"
-filetype on
-autocmd FileType c,cpp,python autocmd BufWritePre <buffer> %s/\s\+$//e
-
-augroup C_PYTHON_Settings
-    "the command below execute the script for the specific filetype C
-    autocmd FileType c source ~/vimrc/.c_vimrc.vim
-
-    "the command below execute the script for the specific filetype python
-    autocmd FileType python source ~/vimrc/.py_vimrc.vim
-augroup END
+autocmd FileType c,cpp,java,php,python 
+\autocmd BufWritePre <buffer> %s/\s\+$//e
 
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_c_check_header = 0
