@@ -1,0 +1,133 @@
+/*
+ * Notes taken while going through vim's src/INSTALL file.
+ *
+ * This was done after combing through the Makefile in Makefile_notes.txt and
+ * setting up things for the initial vim9 build being done.
+ */
+
+1. Generic {{{
+==========
+
+If you compile Vim without specifying anything, you will get the default
+behaviour as is documented, which should be fine for most people.
+
+For features that you can't enable/disable in another way, you can edit the
+file "feature.h" to match your preferences.
+}}}
+
+2. Unix {{{
+=======
+
+Summary:
+1. make			run configure, compile and link
+2. make install		installation in /usr/local
+
+This will include the GUI and X11 libraries, if you have them.  If you want a
+version of Vim that is small and starts up quickly, see the Makefile for how
+to disable the GUI and X11.  If you don't have GUI libraries and/or X11, these
+features will be disabled automatically.
+
+To build Vim on Ubuntu from scratch on a clean system using git:
+ - See the start of Makefile for more detailed instructions about how to compile
+   Vim.
+	Install tools required to be able to get and build Vim:
+	% sudo apt install git
+	% sudo apt install make
+	% sudo apt install clang
+	% sudo apt install libtool-bin
+	
+	Build Vim with default features:
+	% git clone https://github.com/vim/vim.git
+	% cd vim/src
+	% make
+
+	Run tests to check there are no problems:
+	% make test
+
+	Install Vim in /usr/local:
+	% sudo make install
+
+	Add X windows clipboard support (also needed for GUI):
+	% sudo apt install libxt-dev
+	% make reconfig
+
+	Add Python 3 support:
+	% sudo apt install libpython3-dev
+	Uncomment this line in Makefile:
+		"CONF_OPT_PYTHON3 = --enable-python3interp"
+	% make reconfig
+
+	/* 
+	 * NOTE: At this moment not going to vinclude valgring and gdb since i am
+	 *		 not going to be working on vim itself
+	 */
+	Debugging:
+	% sudo apt install valgrind
+	Uncomment this line in Makefile:
+		CFLAGS = -g -Wall -Wextra -Wshadow -Wmissing-prototypes -Wunreachable-code -Wno-deprecated-declarations -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1
+	% make reconfig
+	% make test_{test-name}
+	See output in testdir/valgrind.test_{test-name}
+
+
+/* Setting extra compiler flags with ENV variable.
+ * Would this variable apply to all gcc compilations outside of this
+ * build tho?
+ */
+If you need extra compiler and/or linker arguments, set $CFLAGS and/or $LIBS
+before starting configure.  
+
+This is only needed for things that configure doesn't offer a specific argument
+for or figures out by itself.  First try running configure without extra
+arguments.
+
+NOTE: I dont know if this is the only way to add flags configure does not
+	  get and you may specifically need. 
+
+	  Wouldnt altering the makefile when it sets its CFLAGS or LIBS do the 
+	  samething? That could at least keep the Makefile settings usable again 
+	  without having to remember or note the additional CFLAGS configure doesnt
+	  do correctly.
+	  Update: Turns out configure creates the makefile -_-;
+
+One thing to watch out for: If the configure script itself changes, running
+"make" will execute it again, but without your arguments.  Do "make clean" and
+run configure again.
+
+Example:
+
+	env CFLAGS=-I/usr/local/include  LIBS=-lm  make
+
+
+/* IMPORTAANT LINKING NOTE FROM DOC */
+If configure finds all library files and then complains when linking that some
+of them can't be found, your linker doesn't return an error code for missing
+libraries.  Vim should be linked fine anyway, mostly you can just ignore these
+errors.
+/**/
+}}}
+
+/* Compiling for serveral machines {{{ */
+If you are compiling Vim for several machines, for each machine:
+  a.    make shadow
+  b.    mv shadow machine_name
+  c.    cd machine_name
+  d.    make; make install
+
+[Don't use a path for machine_name, just a directory name, otherwise the links
+that "make shadow" creates won't work.]
+}}}
+
+/* Additional notes for Linux {{{ */
+On Linux, when using -g to compile (which is default for gcc), the executable
+will probably be statically linked.  If you don't want this, remove the -g
+option from CFLAGS.
+
+Unix: PUTTING vimrc IN /etc
+
+Some Linux distributions prefer to put the global vimrc file in /etc, and the
+Vim runtime files in /usr.  This can be done with:
+	./configure --prefix=/usr
+	make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim MAKE="make -e"
+}}}
+

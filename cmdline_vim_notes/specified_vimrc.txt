@@ -1,0 +1,11 @@
+-- Option: -u <vimrc> --
+Use any vimrc specified when instansiating vim.
+	vim -u <vimrc> , Use <vimrc> instead of any .vimrc
+
+This caught my eye. Using this i can just make an alias on whatever system i
+am on to go to wherever the git repo with the vimrc is on the system. Making
+a alias seems low effort for a quickie solution.
+
+instead of alias idea, is there a way to just set it up in general?
+- might still be worth doing a script to install the vimrc and paths etc. in
+  the repo.

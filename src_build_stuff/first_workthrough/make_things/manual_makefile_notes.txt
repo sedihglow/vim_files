@@ -1,0 +1,430 @@
+--- 
+	Jotting down some notes taken from the makefile in vim src repo about
+	including features not included in the binaries.
+	Also to install vim9 and look into the new vim scripting associated with it.
+
+	Features can be altered in feature.h as well but making sure i am doing it
+	correctly since makefile flags may be preferred on my system for some
+	features i may want to include outside of +normal defaults.
+
+	python3 support is interesting ;)
+---
+
+
+/* --- Section - A ---
+ * - Build and Edit Process commented in src/Makefile
+ */
+1.0 - Notes from Makefiles top comment block {{{1
+#
+#	1.1 - Initial notes {{{2
+#	/* Below block was initial notes from this section */
+#	The defaults for Vim should work on most machines, but you may want to
+#	uncomment some lines or make other changes below to tune it to your
+#	system, compiler or preferences.  Uncommenting means that the '#' in
+#	the first column of a line is removed.
+#
+#	- If you want a version of Vim that is small and starts up quickly,
+#	  you might want to disable the GUI, X11, Perl, Python and Tcl.
+#
+#	/* Disable GUI on build */
+#	- Uncomment the line with --disable-gui if you have Motif and/or GTK
+#	  but don't want to make gvim (the GUI version of Vim with nice
+#	  menus and scrollbars, but makes Vim bigger and startup slower).
+#
+#	/* Including Interfaces makes vim much larger. */
+#	- Uncomment one or more of these lines to include an interface;
+#	  each makes Vim quite a bit bigger: (There are more languages than listed)
+#		--enable-python3interp	for Python3 interpreter
+#		--enable-pythoninterp	for Python interpreter
+#   /* Additional note */
+#	- Uncomment one of the lines with CFLAGS and/or CC if you have
+#	  something very special or want to tune the optimizer.
+#
+#	- (! !)Search for the name of your system to see if it needs anything
+#	  special.
+#
+#	- A few versions of make use '.include "file"' instead of 'include
+#	  file'.  Adjust the include line below if yours does.
+--- end 1.1 --- }}}
+
+# 1.2 - copy of top comment section of src/Makefile {{{2
+# /* -- Rest of this section of notes is a copy of maekefile --
+#  * I feel the whole section is worth having a copy of where i dont
+#  * necissarily need to get the src and open the Makefile to see it if i
+#  * do need it for a reference.
+#  *
+#  * So i am just copy pastaing it below :)
+#  */
+#
+# Compiling Vim, summary:
+#
+#	3. make
+#	5. make install
+#
+# Compiling Vim, details:
+#
+# Edit this file for adjusting to your system. You should not need to edit any
+# other file for machine specific things!
+# The name of this file MUST be Makefile (note the uppercase 'M').
+#
+# 1.2.1 - Edit this Makefile {{{3
+#	The defaults for Vim should work on most machines, but you may want to
+#	uncomment some lines or make other changes below to tune it to your
+#	system, compiler or preferences.  Uncommenting means that the '#' in
+#	the first column of a line is removed.
+#	- If you want a version of Vim that is small and starts up quickly,
+#	  you might want to disable the GUI, X11, Perl, Python and Tcl.
+#	- Uncomment the line with --disable-gui if you have Motif and/or GTK
+#	  but don't want to make gvim (the GUI version of Vim with nice
+#	  menus and scrollbars, but makes Vim bigger and startup slower).
+#	- Uncomment --disable-darwin if on Mac OS X but you want to compile a
+#	  Unix version.
+#	- Uncomment the line "CONF_OPT_X = --without-x" if you have X11 but
+#	  want to disable using X11 libraries.	This speeds up starting Vim,
+#	  but the window title will not be set and the X11 selection can not
+#	  be used.
+#	- Uncomment the line "CONF_OPT_XSMP = --disable-xsmp" if you have the
+#	  X11 Session Management Protocol (XSMP) library (libSM) but do not
+#	  want to use it.
+#	  This can speedup Vim startup but Vim loses the ability to catch the
+#	  user logging out from session-managers like GNOME and work
+#	  could be lost.
+#	- Uncomment one or more of these lines to include an interface;
+#	  each makes Vim quite a bit bigger:
+#		--enable-luainterp	for Lua interpreter
+#		--enable-mzschemeinterp	for MzScheme interpreter
+#		--enable-perlinterp	for Perl interpreter
+#		--enable-python3interp	for Python3 interpreter
+#		--enable-pythoninterp	for Python interpreter
+#		--enable-rubyinterp	for Ruby interpreter
+#		--enable-tclinterp	for Tcl interpreter
+#		--enable-cscope		for Cscope interface
+#	- Uncomment one of the lines with --with-features= to enable a set of
+#	  features (but not the interfaces just mentioned).
+#	- Uncomment the line with --disable-acl to disable ACL support even
+#	  though your system supports it.
+#	- Uncomment the line with --disable-gpm to disable gpm support
+#	  even though you have gpm libraries and includes.
+#	- Uncomment the line with --disable-sysmouse to disable sysmouse
+#	  support even though you have /dev/sysmouse and includes.
+#	- Uncomment one of the lines with CFLAGS and/or CC if you have
+#	  something very special or want to tune the optimizer.
+#	- Search for the name of your system to see if it needs anything
+#	  special.
+#	- A few versions of make use '.include "file"' instead of 'include
+#	  file'.  Adjust the include line below if yours does.
+--- end 1.2.1 --- }}}
+
+# 1.2.2 - Edit feature.h {{{3
+#	Only if you do not agree with the default compile features, e.g.:
+#	- you want Vim to be as vi compatible as it can be
+#	- you want to use Emacs tags files
+#	- you want right-to-left editing (Hebrew)
+#	- you want 'langmap' support (Greek)
+#	- you want to remove features to make Vim smaller
+#
+--- end 1.2.2 --- }}}
+#
+# 1.2.3 - "make" {{{3
+#	Will first run ./configure with the options in this file. Then it will
+#	start make again on this Makefile to do the compiling. You can also do
+#	this in two steps with:
+#		make config
+#		make
+#	The configuration phase creates/overwrites auto/config.h and
+#	auto/config.mk.
+#	The configure script is created with "make autoconf".  It can detect
+#	different features of your system and act accordingly.  However, it is
+#	not correct for all systems.  Check this:
+#	- If you have X windows, but configure could not find it or reported
+#	  another include/library directory then you wanted to use, you have
+#	  to set CONF_OPT_X below.  You might also check the installation of
+#	  xmkmf.
+#	- If you have --enable-gui=motif and have Motif on your system, but
+#	  configure reports "checking for location of gui... <not found>", you
+#	  have to set GUI_INC_LOC and GUI_LIB_LOC below.
+#	If you changed something, do this to run configure again:
+#		make reconfig
+#
+#	- If you do not trust the automatic configuration code, then inspect
+#	  auto/config.h and auto/config.mk, before starting the actual build
+#	  phase. If possible edit this Makefile, rather than auto/config.mk --
+#	  especially look at the definition of VIMLOC below. Note that the
+#	  configure phase overwrites auto/config.mk and auto/config.h again.
+#	- If you get error messages, find out what is wrong and try to correct
+#	  it in this Makefile. You may need to do "make reconfig" when you
+#	  change anything that configure uses (e.g. switching from an old C
+#	  compiler to an ANSI C compiler). Only when auto/configure does
+#	  something wrong you may need to change one of the other files. If
+#	  you find a clean way to fix the problem, consider sending a note to
+#	  the author of autoconf (bug-gnu-utils@prep.ai.mit.edu) or Vim
+#	  (Bram@vim.org). Don't bother to do that when you made a hack
+#	  solution for a non-standard system.
+--- end 1.2.3 --- }}}
+#
+# 1.2.4 "make test"  {{{3
+#	This is optional.  This will run Vim scripts on a number of test
+#	files, and compare the produced output with the expected output.
+#	If all is well, you will get the "ALL DONE" message in the end.  If a
+#	test fails you get "TEST FAILURE".  See below (search for "/^test").
+--- end 1.2.4 --- }}}
+#
+# 1.2.5 - "make install"  {{{3
+#	If the new Vim seems to be working OK you can install it and the
+#	documentation in the appropriate location. The default is
+#	"/usr/local".  Change "prefix" below to change the location.
+#	"auto/pathdef.c" will be compiled again after changing this to make
+#	the executable know where the help files are located.
+#	Note that any existing executable is removed or overwritten.  If you
+#	want to keep it you will have to make a backup copy first.
+#	The runtime files are in a different directory for each version.  You
+#	might want to delete an older version.
+#	If you don't want to install everything, there are other targets:
+#		make installvim		only installs Vim, not the tools
+#		make installvimbin	only installs the Vim executable
+#		make installruntime	installs most of the runtime files
+#		make installrtbase	only installs the Vim help and
+#							runtime files
+#		make installlinks	only installs the Vim binary links
+#		make installmanlinks	only installs the Vim manpage links
+#		make installmacros	only installs the Vim macros
+#		make installpack	only installs the packages
+#		make installtutorbin	only installs the Vim tutor program
+#		make installtutor	only installs the Vim tutor files
+#		make installspell	only installs the spell files
+#		make installtools	only installs xxd
+#	If you install Vim, not to install for real but to prepare a package
+#	or RPM, set DESTDIR to the root of the tree.
+--- end 1.2.5 --- }}}
+#
+# 1.2.6 - Use Vim until a new version comes out.  {{{3 --- end 1.2.6 --- }}}
+#
+# 1.2.7 - "make uninstall_runtime"  {{{3
+#	Will remove the runtime files for the current version.	This is safe
+#	to use while another version is being used, only version-specific
+#	files will be deleted.
+#	To remove the runtime files of another version:
+#		make uninstall_runtime VIMRTDIR=/vim54
+#	If you want to delete all installed files, use:
+#		make uninstall
+#	Note that this will delete files that have the same name for any
+#	version, thus you might need to do a "make install" soon after this.
+#	Be careful not to remove a version of Vim that is still being used!
+#	To find out which files and directories will be deleted, use:
+#		make -n uninstall
+--- end 1.2.7 --- }}}
+--- end 1.2 --- }}}
+
+/* 1.3 OS specific Makefile build options {{{2
+ * Specific OS build Makefile options got remarks on tested systems.
+ * Ubuntu is debian --> BSD
+ * Notes from the Makefile are below, including normal Linux
+ */
+### This Makefile has been successfully tested on many systems.
+### Only the ones that require special options are mentioned here.
+### Check the (*) column for remarks, listed below.
+### Later code changes may cause small problems, otherwise Vim is supposed to
+### compile and run without problems.
+#system:		      configurations:			     version (*) tested by:
+#-------------	      ------------------------	     -------  -  ----------
+#BSDI 2.1 (x86)       shlicc2 gcc-2.6.3 -X11 X11R6		4.5  (1) Jos Backus
+#BSD/OS 3.0 (x86)     gcc gcc-2.7.2.1 	-X11 X11R6		4.6c (1) Jos Backus
+#Linux 2.0			  gcc-2.7.2      	Infomagic Motif	4.3  (3) Ronald Rietman
+
+# (*) Remarks:
+# (1)  Uncomment line below for shlicc2
+# (3)  Infomagic Motif needs GUI_LIB_LOC and GUI_INC_LOC set, see below.
+#      And add "-lXpm" to MOTIF_LIBS2.
+--- end 1.3 --- }}} 
+--- end 1.0 --- }}} 
+
+/* --- Section B ---
+ * --- First Time Going Through Makefile ---
+ * Notes and things to note and adjust from going through the Makefile,
+ * should have been Makefile from the src/ before configure was ran iirc.
+ *
+ * first time going through Vim from source.
+ * Started going through the Makefile: May 5 2023
+ */
+/*	-OPTIONS May 5 2023 build fun Ubuntu 22.04 {{{1
+ * Stuff that got toyed with for vim build,
+ * Started this vim from source w/ features May 5 2023
+ * These settings are for the build started to be worked on May 5 2023
+ *
+ * Line #'s may not be accurate in future or if Makefile edits change place
+ * in the future. It will get you in the right spot tho i am sure. It is the
+ * line # as i took the note
+ *
+ * If no # is present, the line was uncommented.
+ * If # is present, the line was commented.
+ */
+
+-- Below Format --
+// my comment
+line # : Line content // my comment
+---
+
+// disable GUI build regardless if avail
+321: CONF_OPT_GUI = --disable-gui 
+
+// fail if one of the requested language interfaces cannot be configured. Without 
+// this Vim will be build anyway, without the failing interfaces.
+380: CONF_OPT_FAIL = --enable-fail-if-missing
+
+// PYTHON - Interface 
+// Uncomment lines here when you want to include the Python interface.
+// Debian package is "libpython3-dev".
+// This requires at least "normal" features, "tiny" doesn't work.
+// Python 3 is preferred, Python 2 (often referred to as "Python") has been
+// deprecated for a long time.
+//
+// NOTE: This may cause threading to be enabled, which has side effects (such
+// as using different libraries and debugging becomes more difficult).
+// For Python3 support make a symbolic link in /usr/local/bin:
+//	ln -s python3 python3.1
+438: #CONF_OPT_PYTHON = --enable-pythoninterp // python2
+439: #CONF_OPT_PYTHON3 = --enable-python3interp
+440: #CONF_OPT_PYTHON3 = --enable-python3interp --with-python3-command=python3.6
+// Went with dynamic for now below for including python support
+441: CONF_OPT_PYTHON3 = --enable-python3interp=dynamic 
+
+// NETBEANS - NetBeans interface. Only works with Motif, GTK, and gnome.
+470: CONF_OPT_NETBEANS = --disable-netbeans
+
+// CHANNEL - inter process communication. Same conditions as NetBeans.
+// Uncomment this when you do not want inter process communication.
+474: #CONF_OPT_CHANNEL = --disable-channel // NOT DISABLING
+
+// TERMINAL - Terminal emulator support, :terminal command.  
+// Requires the channel feature. 
+// The default is enable for when using "huge" features.
+481: CONF_OPT_TERMINAL = --enable-terminal
+482: #CONF_OPT_TERMINAL = --disable-terminal
+
+// When building with "huge" features, right-left and Arabic
+// features are enabled.  Use this to disable them.
+// Dont need that support for the moment.
+489: CONF_OPT_MULTIBYTE = --disable-rightleft --disable-arabic
+
+// XIM - X Input Method.  Special character input support for X11 (Chinese,
+// Japanese, special symbols, etc).  Also needed for dead-key support.
+// When omitted it's automatically enabled for the X-windows GUI.
+499: CONF_OPT_INPUT = --enable-xim
+500: #CONF_OPT_INPUT = --disable-xim
+
+// FONTSET - X fontset support for output of languages with many characters.
+// Uncomment this when you want to output a multibyte language.
+504: CONF_OPT_OUTPUT = --enable-fontset
+
+// ACL - Uncomment this when you do not want to include ACL support, even
+// though your system does support it.  E.g., when it's buggy.
+508: #CONF_OPT_ACL = --disable-acl // NOT DISABLING
+
+// libcanberra - For sound support.  Default is on for huge features.
+// I already disable bells, mr robot tells me its not worth adding in that case
+525: #CONF_OPT_CANBERRA = --enable-canberra
+526: CONF_OPT_CANBERRA = --disable-canberra
+
+/* 
+ * TODO: Need to look into FEATURES more at this moment. If i am not mistaken huge
+ * is the defaults ubuntu uses in its repo build?
+ *
+ * Do i need to choose one or will it just go through the feature.h anyway and
+ * base everything on manual edit definition/undefs etc.
+ *
+ * I may not want everything in huge, but normal may not have everything i want.
+ * Unsure
+ */
+// FEATURES - For creating Vim with more or less features
+// Uncomment one of these lines when you want to include few to many features.
+// The default is "huge" for most systems.
+535: #CONF_OPT_FEAT = --with-features=tiny
+536: #CONF_OPT_FEAT = --with-features=normal
+537: #CONF_OPT_FEAT = --with-features=huge // Likely choose this guy anyway
+
+// X WINDOWS DISABLE - For creating a plain Vim without any X11 related fancies
+// (otherwise Vim configure will try to include xterm titlebar access)
+// Also disable the GUI above, otherwise it will be included anyway.
+// When both GUI and X11 have been disabled this may save about - 15% - of the
+// code and make Vim startup quicker. (Just thought it was a good note, 15%!)
+547: #CONF_OPT_X = --without-x
+
+// If you want to always automatically add a servername, also in the terminal.
+// For info on what the servernae is, i just asked chatgpt ;) It allows cross
+// communication between vim sessions and things. Makes sure theres a name
+// for the session that is unique.
+572: CONF_OPT_AUTOSERVE = --enable-autoservername
+
+/**** 
+ **** This section ended ater line 572, where COMPILER used can be overriden
+ **** from the configure by the Makefile
+ ****/
+}}}
+
+/* May 5 2023 build fun Ubuntu 22.04 cont. CFLAGS n Stuff {{{1
+ *
+ *	This goes down the vim/src/Makefile
+ *	line 573 
+ *	goes into more compiler stuff outside of what was being done in -OPTIONS
+ *	block of notes
+ */
+}}}
+
+// COMPILER - Name of the compiler {{{1
+// The default from configure will mostly be fine, no need to change this, just
+// an example. If a compiler is defined here, configure will use it rather than
+// probing for one. It is dangerous to change this after configure was run.
+// Make will use your choice then -- but beware: Many things may change with
+// another compiler.  It is wise to run 'make reconfig' to start all over
+// again.
+582: #CC = gcc
+
+
+/* 
+ * NOTE CFLAGS: Something i noticed about the commented out definitions of 
+ * CFLAGS in the Makefile. They are not concatinating each line that has CFLAGS
+ * it is setting CFLAGS to the line, overwriting previous CFLAG settings.
+ *
+ * NOTE: Not all compiler flags for (in my case) gcc are listed, likely just
+ *		 what i am going to use right now unless something note worthy comes
+ *		 up.
+ */
+// Often used for GCC: mixed optimizing, lot of optimizing, debugging
+601: CFLAGS = -g -O2 -fno-strength-reduce -Wall -Wshadow -Wmissing-prototypes
+
+// LINT - for running lint
+//  For standard Unix lint
+// NOTE TO CHECK: I commented out these two lines to try and not include LINT in
+//				build, but not sure if thats actually the proper way for the
+//				LINT functionality to be disable since no comment is saying
+//				its okay to comment out the variables
+646: #LINT = lint
+647: #LINT_OPTIONS = -beprxzF
+
+// GCC 5 and later need the -no-pie argument.
+661: PROFILE_LIBS = -no-pie # -pg -no-pie // after '#' is the original code
+}}}
+
+/* Specific systems, check if yours is listed {{{1
+ *
+ * Starts on line 724
+ *
+ *
+ *
+ * ### Uncomment things here only if the values chosen by configure are wrong.
+ * ### It's better to adjust configure.ac and "make autoconf", if you can!
+ * ### Then send the required changes to configure.ac to the bugs list.
+ */
+}}}
+
+/* Permissions for binary section */ {{{1
+
+// If you are using Linux, you might want to use this to make vim the
+// default vi editor, it will create a link from vi to Vim when doing
+// "make install".  An existing file will be overwritten!
+// When not using it, some make programs can't handle an undefined $(LINKIT).
+//
+// Figured i would do this. Why not? -_-;
+1189: LINKIT = ln -f -s $(DEST_BIN)/$(VIMTARGET) $(DESTDIR)/usr/bin/vi
+1190: #LINKIT = @echo >/dev/null
+}}}
