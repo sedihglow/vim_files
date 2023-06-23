@@ -10,6 +10,8 @@
 #		  - First make it only the arguments that i want adjusting after
 #			setting the build to HUGE. (No arguments enabling stuff HUGE flag
 #			already enables, will disable ones from HUGE i do not want.)
+#
+#
 #		  - LATER (will list it later in list aswell if i remember):
 #			Write out a version that individually activates desired features,
 #			regardless of tiny/huge/etc. Probably wont need it so backburner it
@@ -38,6 +40,15 @@
 #	    	- This flag will ignore the arguments file and instead just run
 #			  configure with the basic default features that are applied by
 #			  setting the feature list.
+#			  - Noting we may just default HUGE and disable features instead
+#			    of manually applying each feature as noted somewhere above,
+#			    we may want to use -d (or we) to ignore the arg file and have
+#			    another option -"X" tht applys the arg file but will ignore
+#			    the arg files "size" preference for the option argument's
+#			    request.
+#			    - perhaps have multiple filetypes for arg file with different
+#			      specs. Individually applies all (off tiny/no size arg),
+#			      w/e best compatiple with -"X". I dunno think about it.
 #			- The arguments apply the feature settings with the same name as
 #			  Vim. See Vim docs (|+feature-list|) to see which feature set
 #			  applies which features and settings. Vim's default is huge i
@@ -102,6 +113,10 @@
 # Make sure to cd into the top-level Vim repo with the config script so it
 # can place the files it creates in the proper locations.
 #
+#
+
+
+
 ##		List of potential args from planning below
 #
 #		-h : help print out
@@ -129,15 +144,15 @@ arg_file=""
 filename=""
 dirpath=""
 
-inside_function()
+parse_args_getopts()
 {
 	echo "Arguments passed to inside_function()"
 	echo "---> $@"
 
-	while getopts "a:b::" opt; do
+	while getopts "" opt; do
 	  case "$opt" in
 		a) 
-			echo "IN A BLOCK - "
+			echo "-- IN A BLOCK --- "
 			arg_file=$OPTARG
 			echo -e "optarg: $OPTARG\n"\
 				 "\barg_file: $arg_file\n"\
@@ -146,7 +161,7 @@ inside_function()
 			;;
 
 		b) 
-			echo "IN B BLOCK - "
+			echo "-- IN B BLOCK -- "
 			echo $OPTARG
 			;;
 		:)
@@ -172,6 +187,5 @@ inside_function()
 	OPTIND=1
 }
 
-inside_function $@
+parse_args_getopts $@
 
-echo "testing global from function : $arg_file"
