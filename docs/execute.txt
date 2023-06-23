@@ -1,0 +1,72 @@
+---
+This document contains notes about ctags in Vim
+
+For notes on using tags with documentation (text files etc. like Vim docs)
+see ./doc_tags.txt
+
+Vim Documentation: https://vimhelp.org/
+Vim src: ./runtime/doc/
+
+Other docs:
+	Vim src: ./runtime/doc/
+
+---
+
+*:exe* *:execute*
+:exe[cute] {expr1} ..	Executes the string that results from the evaluation
+			of {expr1} as an Ex command.
+			Multiple arguments are concatenated, with a space in
+			between.  To avoid the extra space use the ".."
+			operator to concatenate strings into one argument.
+			{expr1} is used as the processed command, command line
+			editing keys are not recognized.
+			Cannot be followed by a comment.
+			Examples: >
+		:execute "buffer" nextbuf
+		:execute "normal" count .. "w"
+<
+			":execute" can be used to append a command to commands
+			that don't accept a '|'.  Example: >
+		:execute '!ls' | echo "theend"
+
+<			":execute" is also a nice way to avoid having to type
+			control characters in a Vim script for a ":normal"
+			command: >
+		:execute "normal ixxx\<Esc>"
+<			This has an <Esc> character, see |expr-string|.
+
+			Be careful to correctly escape special characters in
+			file names.  The |fnameescape()| function can be used
+			for Vim commands, |shellescape()| for |:!| commands.
+			Examples: >
+		:execute "e " .. fnameescape(filename)
+		:execute "!ls " .. shellescape(filename, 1)
+<
+			Note: The executed string may be any command-line, but
+			starting or ending "if", "while" and "for" does not
+			always work, because when commands are skipped the
+			":execute" is not evaluated and Vim loses track of
+			where blocks start and end.  Also "break" and
+			"continue" should not be inside ":execute".
+			This example does not work, because the ":execute" is
+			not evaluated and Vim does not see the "while", and
+			gives an error for finding an ":endwhile": >
+		:if 0
+		: execute 'while i > 5'
+		:  echo "test"
+		: endwhile
+		:endif
+<
+			It is allowed to have a "while" or "if" command
+			completely in the executed string: >
+		:execute 'while i < 5 | echo i | let i = i + 1 | endwhile'
+<
+
+							*:exe-comment*
+			":execute", ":echo" and ":echon" cannot be followed by
+			a comment directly, because they see the '"' as the
+			start of a string.  But, you can use '|' followed by a
+			comment.  Example: >
+		:echo "foo" | "this is a comment
+
+

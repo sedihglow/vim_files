@@ -1,0 +1,130 @@
+---
+This document contains notes about ctags in Vim
+
+For notes on using tags with documentation (text files etc. like Vim docs)
+see ./doc_tags.txt
+
+Vim Documentation:
+	https://vimhelp.org/tagsrch.txt.html#tags
+
+Vim src:
+	./runtime/doc/usr_29.txt
+	./runtime/doc/tagsrch.txt
+
+Other resources:
+	https://vim.fandom.com/wiki/Browsing_programs_with_tags
+
+started writing 6/1/23
+
+- Vim src usr_29.txt from 5/5/23 referenced first at start of writing
+- Vim HTML Docs from 6/1 referenced at start of writing
+- just in case something seems out of date randomly or if from a distant future
+---
+
+Table of Contents
+TODO: Figure out how the src runtime docs do the shit. as far as i know at
+	  this point i can make tags with ctags as the docs start. Hoping it covers
+	  how to do the txt file shit the help files do.
+
+	  It looks like this will just be about ctags. We can figure out the txt
+	  file stuff and make the table of contents here at some point or if it
+	  ends up telling me how they do it. (might just be editing the tags file
+	  that holds the identifers? just an initial guess/solution which is
+	  prob not the best if it does work.... because 29.1 could be a hardcoded
+	  float rather than a chapter number... --;)
+
+ UPDATE: Looks like the chapter numbers are just in the tags file in the
+		 runtime src for help docs.
+		 - See if there is a text file format commands in clang to populate
+		   instead of manual entry. Or a hotkey in a vim session, something
+		   along those lines.
+		- ^^^^ doctags.c/txt
+-----
+
+1.0 Using tags
+
+What is a tag?  It is a location where an identifier is defined.  An example
+is a function definition in a C or C++ program.  A list of tags is kept in a
+tags file.  This can be used by Vim to directly jump from any place to the
+tag, the place where an identifier is defined.
+
+
+1.1 Creating tags with ctags
+
+   To generate the tags file for all C files in the current directory, use the
+following command: >
+
+	ctags *.c
+
+"ctags" is a separate program.  Most Unix systems already have it installed.
+If you do not have it yet, you can find Universal/Exuberant ctags at:
+	http://ctags.io ~
+	http://ctags.sf.net ~
+
+Universal ctags is preferred, Exuberant ctags is no longer being developed.
+
+1.2 Basic move to tag/identifier using exec mode or shortcut
+
+Now when you are in Vim and you want to go to a function definition, you can
+jump to it by using the following command: >
+
+	:tag startlist
+
+When highlighting or having your curor over a name, you can use:
+
+	ctrl + ]
+
+to jump to the first in the intance it finds of that identifier or pattern.
+
+1.3 Flow through prog using ctrl+]
+
+	+-------------------------------------+
+	|void write_block(char **s; int cnt)  |
+	|{				      |
+	|   int i;			      |
+	|   for (i = 0; i < cnt; ++i)	      |
+	|      write_line(s[i]);	      |
+	|}	    |			      |
+	+-----------|-------------------------+
+		    |
+	     CTRL-] |
+		    |	 +----------------------------+
+		    +--> |void write_line(char *s)    |
+			 |{			      |
+			 |   while (*s != 0)	      |
+			 |	write_char(*s++);     |
+			 |}	  |		      |
+			 +--------|-------------------+
+				  |
+			   CTRL-] |
+				  |    +------------------------------------+
+				  +--> |void write_char(char c)		    |
+				       |{				    |
+				       |    putchar((int)(unsigned char)c); |
+				       |}				    |
+				       +------------------------------------+
+
+1.4 Traversal history
+
+The ":tags" command shows the list of tags that you traversed through:
+
+	:tags
+	  # TO tag	   FROM line  in file/text ~
+	  1  1 write_line	   8  write_block.c ~
+	  2  1 write_char	   7  write_line.c ~
+	> ~
+>
+Now to go back.  The CTRL-T command goes to the preceding tag.  In the example
+above you get back to the "write_line" function, in the call to "write_char".
+   This command takes a count argument that indicates how many tags to jump
+back.  You have gone forward, and now back.  Let's go forward again.  The
+following command goes to the tag on top of the list: >
+
+	:tag
+
+You can prefix it with a count and jump forward that many tags.  For example:
+":3tag".  CTRL-T also can be preceded with a count.
+   These commands thus allow you to go down a call tree with CTRL-] and back
+up again with CTRL-T.  Use ":tags" to find out where you are.
+
+

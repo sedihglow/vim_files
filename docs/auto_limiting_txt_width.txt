@@ -1,0 +1,19 @@
+---
+This document contains notes about the commands, settings and options for
+limiting the text width in a more automated way.
+
+- TODO WITH NOTES: can make small adjustments or scripts for particular languages, for example
+  make it wrap but if its a string in C start the next line below the above's 
+  first '"', and the first line with a ' "' and place the wrapped text after
+  the second lines auto inserted '"'.
+(I added the TODO string late, see what i mean... ", for example")
+
+Vim Documentation: 
+	https://vimhelp.org/
+
+Vim src: 
+	./runtime/doc/
+	./runtime/doc/
+---
+
+

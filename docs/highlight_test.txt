@@ -1,0 +1,16 @@
+
+
+
+------------------------
+
+There are three types of highlight groups:
+- The ones used for specific languages.  For these the name starts with the
+  name of the language.  Many of these don't have any attributes, but are
+  linked to a group of the second type.
+- The ones used for all syntax languages.
+- The ones used for the 'highlight' option.
+							*hitest.vim*
+You can see all the groups currently active with this command: >
+    :so $VIMRUNTIME/syntax/hitest.vim
+This will open a new window containing all highlight group names, displayed
+in their own color.

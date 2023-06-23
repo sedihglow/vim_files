@@ -4,7 +4,6 @@
 
 "set background=dark
 
-
 "set backup
 "set backupcopy=auto
 "set expandtab

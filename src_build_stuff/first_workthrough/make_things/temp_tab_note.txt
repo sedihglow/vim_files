@@ -1,0 +1,13 @@
+help 'shell'
+help terminal
+
+man ctags
+ctags notes
+usr_29.txt
+configure script
+tagsrch.txt
+
+doctags.c (interesting generating tags for the text files in runtime docs?)
+runtime doc Makefile (see ctags call)
+
+uniq --help (learn to move up that vim termianl ;;)

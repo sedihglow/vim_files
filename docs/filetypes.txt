@@ -1,0 +1,17 @@
+---
+This document contains notes about ctags in Vim
+
+For notes on using tags with documentation (text files etc. like Vim docs)
+see ./doc_tags.txt
+
+Vim Documentation:
+	https://vimhelp.org/
+
+Vim src:
+	./runtime/doc/
+	./runtime/doc/
+---
+
+
+-- Just throwing this hear, saw it under CHANGELOG ft-changelog-plugin
+'formatoptions'		the 't' flag is added to wrap when inserting text.

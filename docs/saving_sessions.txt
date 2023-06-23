@@ -1,0 +1,16 @@
+---
+This document contains notes about saving and using sessions to prevent
+reopening files each time.
+
+help session mksession m
+starting.txt (how have i never gone through all these docs by now D:)
+
+Vim Documentation:
+Vim src:
+
+Other docs:
+	Vim src: ./runtime/doc/
+
+---
+
+

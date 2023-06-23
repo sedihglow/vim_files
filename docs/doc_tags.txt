@@ -1,0 +1,19 @@
+---
+this document contains notes on using tags with documentation 
+(text files etc. like Vim docs)
+
+For notes on using tags with documentation (text files etc. like Vim docs)
+see ./ctags.txt
+
+Vim Documentation: https://vimhelp.org/
+Vim src: ./runtime/doc/doctags.txt
+
+Other docs:
+	Vim src: ./runtime/doc/
+
+program Vim utilizes:
+	./vim/runtume/doc/doctags.c
+
+---
+
+

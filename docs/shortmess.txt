@@ -1,0 +1,14 @@
+---
+This document contains notes about the command option shortmess
+
+There are shorthands for the command start start with s (og vimrc used set sc)
+
+Vim Documentation: 
+	https://vimhelp.org/
+
+Vim src: 
+	./runtime/doc/
+	./runtime/doc/
+---
+
+

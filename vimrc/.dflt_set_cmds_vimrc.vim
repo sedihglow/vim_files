@@ -63,6 +63,7 @@ set showmatch
 set diffopt=filler,iwhite
 set stal=2
 set formatoptions=cro
+set autochdir
 
 if exists('+colorcolumn')
     set colorcolumn=80

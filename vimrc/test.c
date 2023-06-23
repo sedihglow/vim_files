@@ -1,3 +1,6 @@
+
+
+/* Testing comments and strings "in comments" */
 int main()
 {
 

@@ -1,0 +1,343 @@
+" Vim color file -- askapachecode
+" Maintainer: AskApache <webmaster@askapache.com>
+" Updated: Wed Feb 22 14:10:54 2012 by galileo@galileo
+
+set background=dark
+hi clear
+
+if exists("syntax_on")|syntax reset|endif
+
+" if &t_Co > 2
+"   " Revert with ":syntax off".
+"   syntax on
+"
+"   " I like highlighting strings inside C comments.
+"   " Revert with ":unlet c_comment_strings".
+" endif
+
+let c_comment_strings=1
+
+" Vim >= 7.0 specific colors
+if version >= 700
+ hi CursorLine ctermbg=236
+ hi CursorColumn ctermbg=236
+ hi MatchParen ctermfg=157 ctermbg=237 cterm=bold
+ hi Pmenu ctermfg=255 ctermbg=238
+ hi PmenuSel ctermfg=0 ctermbg=148
+endif
+
+" General colors
+hi Cursor ctermbg=241
+hi Normal ctermfg=253 ctermbg=232
+hi NonText ctermfg=244 ctermbg=235
+hi LineNr ctermfg=244 ctermbg=232
+hi StatusLine ctermfg=253 ctermbg=238 cterm=italic
+hi StatusLineNC ctermfg=246 ctermbg=238
+hi VertSplit ctermfg=238 ctermbg=238
+hi Folded ctermbg=4 ctermfg=248
+hi Title ctermfg=254 cterm=bold
+hi Visual ctermfg=254 ctermbg=4
+hi SpecialKey ctermfg=244 ctermbg=236
+
+hi pythonOperator ctermfg=103
+
+hi Search cterm=NONE
+
+
+" basic highlight groups (:help highlight-groups) {{{1
+
+" text {{{2
+hi Normal ctermfg=white ctermbg=black cterm=NONE
+hi Folded ctermfg=lightgray ctermbg=black cterm=underline
+hi LineNr ctermfg=darkgray ctermbg=NONE cterm=NONE
+hi Directory ctermfg=cyan ctermbg=NONE cterm=NONE
+hi NonText ctermfg=yellow ctermbg=NONE cterm=NONE
+hi SpecialKey ctermfg=green ctermbg=NONE cterm=NONE
+
+hi DiffAdd ctermfg=white ctermbg=darkblue cterm=NONE
+hi DiffChange ctermfg=black ctermbg=darkmagenta cterm=NONE
+hi DiffDelete ctermfg=black ctermbg=red cterm=bold
+hi DiffText ctermfg=white ctermbg=green cterm=bold
+
+
+" borders / separators / menus {{{2
+hi FoldColumn ctermfg=lightgray ctermbg=darkgray cterm=NONE
+hi SignColumn ctermfg=lightgray ctermbg=darkgray cterm=NONE
+hi Pmenu ctermfg=white ctermbg=darkgray cterm=NONE
+hi PmenuSel ctermfg=white ctermbg=lightblue cterm=NONE
+hi PmenuSbar ctermfg=black ctermbg=black cterm=NONE
+hi PmenuThumb ctermfg=gray ctermbg=gray cterm=NONE
+
+hi StatusLine ctermfg=black ctermbg=white cterm=bold
+hi StatusLineNC ctermfg=darkgray ctermbg=white cterm=NONE
+hi WildMenu ctermfg=white ctermbg=darkblue cterm=bold
+hi VertSplit ctermfg=white ctermbg=white cterm=NONE
+
+if &t_Co == 256|hi TabLine ctermfg=15 ctermbg=242 term=underline|else|hi TabLine ctermfg=grey ctermbg=white term=underline|endif
+"hi TabLine ctermfg=white ctermbg=white cterm=NONE
+hi TabLineFill ctermfg=grey ctermbg=white cterm=NONE
+"hi TabLineSel ctermfg=black ctermbg=green cterm=NONE
+hi TabLineSel ctermfg=green ctermbg=black term=bold
+"hi TabLineSel term=bold cterm=bold
+"hi TabLineFill term=reverse cterm=reverse
+"hi TabLine term=underline cterm=underline ctermfg=15 ctermbg=242
+
+"hi Menu
+"hi Scrollbar
+"hi Tooltip
+
+
+" cursor / dynamic / other {{{2
+hi Cursor ctermfg=black ctermbg=white cterm=NONE
+hi CursorIM ctermfg=black ctermbg=white cterm=reverse
+hi CursorLine ctermfg=NONE ctermbg=NONE cterm=NONE
+hi CursorColumn ctermfg=NONE ctermbg=NONE cterm=NONE
+
+hi Visual ctermfg=white ctermbg=lightblue cterm=NONE
+hi IncSearch ctermfg=white ctermbg=yellow cterm=NONE
+hi Search ctermfg=white ctermbg=darkgreen cterm=NONE
+
+
+" LISTINGS / MESSAGES {{{2
+hi ModeMsg ctermfg=yellow ctermbg=NONE cterm=NONE
+hi Title ctermfg=red ctermbg=NONE cterm=bold
+hi Question ctermfg=green ctermbg=NONE cterm=NONE
+hi MoreMsg ctermfg=green ctermbg=NONE cterm=NONE
+hi ErrorMsg ctermfg=white ctermbg=red cterm=bold
+hi WarningMsg ctermfg=yellow ctermbg=NONE cterm=bold
+
+hi Directory term=bold ctermfg=4 "{{{
+hi ErrorMsg term=standout ctermfg=15 ctermbg=1
+hi IncSearch term=reverse cterm=reverse
+hi Search term=NONE ctermfg=255 ctermbg=135
+hi MoreMsg term=bold ctermfg=2
+hi ModeMsg term=bold cterm=bold
+hi LineNr term=underline ctermfg=244 ctermbg=232
+hi Question term=standout ctermfg=2
+hi StatusLine term=bold,reverse cterm=italic ctermfg=253 ctermbg=238
+hi StatusLineNC term=reverse cterm=reverse ctermfg=246 ctermbg=238
+hi VertSplit term=reverse cterm=reverse ctermfg=238 ctermbg=238
+hi Title term=bold cterm=bold ctermfg=254
+hi Visual term=reverse ctermfg=254 ctermbg=4
+hi VisualNOS term=bold,underline cterm=bold,underline
+hi WarningMsg term=standout ctermfg=1
+hi WildMenu term=standout ctermfg=0 ctermbg=11
+hi Folded term=standout cterm=BOLD ctermfg=7 ctermbg=27
+hi FoldColumn term=NONE cterm=NONE ctermfg=75 ctermbg=16
+hi IncSearch term=bold,underline cterm=bold,underline ctermfg=7 ctermbg=9
+hi DiffAdd term=bold ctermbg=12
+hi DiffChange term=bold ctermbg=13
+hi DiffDelete term=bold ctermfg=12 ctermbg=14
+hi DiffText term=reverse cterm=bold ctermbg=9
+hi SpellBad term=reverse ctermbg=9
+hi SpellCap term=reverse ctermbg=12
+hi SpellRare term=reverse ctermbg=13
+hi SpellLocal term=underline ctermbg=14
+hi Pmenu ctermfg=255 ctermbg=238
+hi PmenuSel ctermfg=0 ctermbg=148
+hi PmenuSbar ctermbg=7
+hi PmenuThumb cterm=reverse
+hi TabLine term=underline cterm=underline ctermfg=0 ctermbg=7
+hi TabLineSel term=bold cterm=bold
+hi TabLineFill term=reverse cterm=reverse
+hi CursorLine term=underline cterm=bold ctermbg=234
+hi Cursor ctermbg=241
+hi MatchParen term=reverse cterm=bold ctermfg=157 ctermbg=237
+hi Error term=reverse ctermfg=15 ctermbg=9
+
+
+
+
+
+" :hi TabLineSel|hi TabLineFill|hi TabLine
+"hi TabLineSel term=bold cterm=bold
+"hi TabLineFill term=reverse cterm=reverse
+"hi TabLine term=underline cterm=underline ctermfg=15 ctermbg=242
+hi ExtraWhitespace ctermbg=red
+hi Comment term=none ctermfg=darkgrey
+hi Constant term=underline ctermfg=Magenta
+hi Special term=bold ctermfg=DarkMagenta
+hi Identifier term=underline cterm=bold ctermfg=Cyan
+hi Statement term=bold ctermfg=Yellow
+hi PreProc term=underline ctermfg=LightBlue
+hi Type term=underline ctermfg=LightGreen
+hi Repeat term=underline ctermfg=White
+hi Operator ctermfg=Red
+hi Ignore ctermfg=black
+hi Error term=reverse ctermbg=Red ctermfg=White
+hi Todo term=standout ctermbg=Yellow ctermfg=Black
+
+
+
+" COMMON GROUPS THAT LINK TO DEFAULT HIGHLIGHTING.
+
+hi Function ctermfg=85
+hi String ctermfg=204
+hi Statement term=bold cterm=bold ctermfg=81
+hi Function term=bold cterm=bold ctermfg=32
+hi Number ctermfg=129
+hi Conditional term=bold cterm=bold ctermfg=47
+hi Special term=underline ctermfg=191
+hi Normal ctermfg=7
+hi PreProc ctermfg=141
+" Syntax highlighting
+hi Comment ctermfg=244
+hi Todo ctermfg=245
+hi Boolean ctermfg=148
+hi String ctermfg=148
+hi Identifier ctermfg=148
+hi Function ctermfg=124
+hi Type ctermfg=103
+hi Statement ctermfg=103
+hi Keyword ctermfg=81
+hi Constant ctermfg=81
+hi Number ctermfg=81
+hi Special ctermfg=81
+hi PreProc ctermfg=230
+" Code-specific colors
+
+
+" SYNTAX HIGHLIGHTING GROUPS (:HELP GROUP-NAME) {{{2
+hi FoldColumn ctermbg=0 ctermfg=2
+hi Folded ctermbg=0 ctermfg=2
+hi NonText cterm=NONE ctermfg=NONE
+hi StatusLine ctermfg=black ctermbg=White cterm=bold
+hi StatusLineNC ctermfg=White ctermbg=green cterm=NONE
+hi CursorLine cterm=bold term=bold
+
+" FINAL THOUGHTS "{{{2
+"syn region myFold start="{" end="}" transparent fold
+
+"hi Search term=reverse ctermfg=1 ctermbg=11
+"hi LineNr term=underline ctermfg=245 ctermbg=232
+"hi MatchParen ctermfg=16 ctermbg=242
+"hi String ctermfg=11
+"hi Constant ctermfg=15
+"hi Identifier ctermfg=15
+"hi Operator ctermfg=14
+"hi NonText cterm=NONE ctermfg=NONE
+"hi Search cterm=bold ctermbg=100 ctermfg=17
+
+"set backup
+"set backupcopy=auto
+set swapfile
+set swapsync=fsync
+set nocompatible
+set modeline
+set ttyfast
+set scrolljump=5
+set undolevels=50
+set updatecount=250
+set whichwrap+=b,s,<,>,h,l,[,]
+set nowrap
+set autoindent
+set smartindent
+set autoread
+"set backspace=indent,eol,start
+set cmdheight=1
+"set complete=.,w,b,u,U,t,i,d
+set cursorline
+
+set history=1000
+set linebreak
+set magic "enable magic
+
+set maxmem=100000 "24MB
+set noautowrite
+"set expandtab
+set ruler
+set nospell
+set nohidden
+set noerrorbells visualbell t_vb= "Disable ALL bells
+set number
+"set pastetoggle=<f11>
+set scrolloff=3
+set showcmd
+set showfulltag
+set showmode
+set sidescroll=2
+set sidescrolloff=2
+set noguipty
+set splitright
+set splitbelow
+set restorescreen=on
+set hlsearch
+set laststatus=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set switchbuf=usetab
+set commentstring=#%s
+set tabpagemax=55
+set showtabline=2
+set smarttab
+set foldmethod=marker
+set foldenable
+set foldcolumn=3
+set incsearch
+set sc
+set smartcase
+set showmatch
+set diffopt=filler,iwhite
+set stal=2
+
+" DONT FORGET TO SET THIS IN THE NEW VIMRC SETUP BEING DONE
+" changes working directory to what the current windows path is.
+set autochdir
+
+
+set formatoptions=cro
+
+" When the +eval feature is missing, the set command above will be skipped.
+" Use a trick to reset compatible only when the +eval feature is missing.
+" Taken from $VIMRUNTIME/defaults.vim
+
+" if 0
+" 	silent! while 0
+" 	  set nocompatible
+" 	silent! endwhile
+" endif
+
+" Set vim transparent in terminal by default
+hi Normal ctermbg=NONE
+
+" The toggle transparent function
+" Allows the ability to toggle transparency (no gvim currently)
+let g:is_trans = 1 " Starts as transparent since setting that by default
+function! Toggle_transparent()
+	if g:is_trans == 0
+		" Sets term vim to transparent
+		hi Normal ctermbg=NONE
+		let g:is_trans = 1
+	else
+		" Sets term vim to opaque
+		hi Normal ctermbg=black
+		let g:is_trans = 0
+	endif
+endfunction
+
+
+if exists('+colorcolumn')
+    set colorcolumn=80
+    endif
+
+"To enable file type detection"
+filetype on
+
+autocmd FileType c,cpp,python,text
+	\ autocmd BufWritePre <buffer> %s/\s\+$//e
+
+augroup C_PYTHON_Settings
+    "the command below execute the script for the specific filetype C
+    autocmd FileType c source ~/git_repos/vim_files/vimrc/.c_vimrc.vim
+
+    "the command below execute the script for the specific filetype python
+    autocmd FileType python source ~/git_repos/vim_files/vimrc/.py_vimrc.vim
+augroup END
+
+syntax on
+
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_c_check_header = 0
+let g:syntastic_no_include_search = 1
+let g:syntastic_remove_include_errors = 1

@@ -1,14 +1,15 @@
 " This vimrc is what gets called when opening vim. (~/.vimrc)
 
 " set syntax highlighting settings
-source ./syn_hi.vim
+source ./.syn_hi_vimrc.vim
 
 " set general/initial set command settings
-source ./dflt_set_cmds.vim
+source ./.dflt_set_cmds_vimrc.vim
 
 "To enable file type detection"
 filetype on
-autocmd FileType c,cpp,python,text autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType c,cpp,python,text,make
+	\ autocmd BufWritePre <buffer> %s/\s\+$//e
 
 augroup Gen_txt_style_Settings
 	" text filetype covers: *.text,README,LICENSE,COPYING,AUTHORS
@@ -28,4 +29,8 @@ augroup Makefile_Settings
     autocmd FileType make source ~/vimrc/.makefile_vimrc.vim
 augroup END
 
-source ../scripts_vim/funct_inc.vim
+
+source ~/git_repos/vim_files/scripts_vim/function_files/echo_testing.vim
+
+
+" source ../scripts_vim/funct_inc.vim

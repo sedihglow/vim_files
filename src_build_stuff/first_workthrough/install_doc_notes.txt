@@ -72,14 +72,16 @@ To build Vim on Ubuntu from scratch on a clean system using git:
 
 /* Setting extra compiler flags with ENV variable.
  * Would this variable apply to all gcc compilations outside of this
- * build tho?
+ * build tho? (i think i might, and make just alters it when i compile programs,
+ * Can test that at some point for my own confirmation but iirc it does.
  */
 If you need extra compiler and/or linker arguments, set $CFLAGS and/or $LIBS
 before starting configure.  
 
 This is only needed for things that configure doesn't offer a specific argument
-for or figures out by itself.  First try running configure without extra
-arguments.
+for or figures out by itself.  First try running configure and play around to
+see behavior. If results of toying with configure isnt updated here, it will be
+somewhere i am sure. :)
 
 NOTE: I dont know if this is the only way to add flags configure does not
 	  get and you may specifically need. 
@@ -89,6 +91,12 @@ NOTE: I dont know if this is the only way to add flags configure does not
 	  without having to remember or note the additional CFLAGS configure doesnt
 	  do correctly.
 	  Update: Turns out configure creates the makefile -_-;
+	  Figure Out: If it makes both makefiles or just src/Makefile. Basically
+				  run the thing and see whats good.
+				  - It looks like just using make config does not allow for
+					passing specific arguments to the configure script.
+				  - Insteal of make config we can run ./configure --args
+					manually and checked over its results before building.
 
 One thing to watch out for: If the configure script itself changes, running
 "make" will execute it again, but without your arguments.  Do "make clean" and
@@ -99,7 +107,7 @@ Example:
 	env CFLAGS=-I/usr/local/include  LIBS=-lm  make
 
 
-/* IMPORTAANT LINKING NOTE FROM DOC */
+/* IMPORTAANT LINKING NOTE FROM DOCS */
 If configure finds all library files and then complains when linking that some
 of them can't be found, your linker doesn't return an error code for missing
 libraries.  Vim should be linked fine anyway, mostly you can just ignore these

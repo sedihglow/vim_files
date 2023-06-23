@@ -1,0 +1,28 @@
+-- Vim help HTML docs --
+https://vimhelp.org/
+
+-- Vim src --
+https://github.com/vim/vim
+
+-- Vim docs in src --  
+../vim/runtime/doc
+
+-- Vim help --
+help help.txt
+help intro.txt
+
+-- Vim reference manual -- 
+https://vimhelp.org/#reference_toc
+help reference_toc
+
+-- Vim user manual -- 
+https://vimhelp.org/usr_toc.txt.html 
+help toc / user-manual / usr_toc.txt
+
+The user manual is available as a single, ready to print HTML and PDF file
+here:
+	http://vimdoc.sf.net
+
+-- Vim archWiki (likely highly usefull, as arch wiki often is...
+   i miss using arch D: --
+https://wiki.archlinux.org/title/vim

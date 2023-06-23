@@ -11,8 +11,9 @@
 ---
 
 
-/* --- Section - A ---
- * - Build and Edit Process commented in src/Makefile
+						--- Section - A ---
+/* 
+ * Build and Edit Process commented in src/Makefile
  */
 1.0 - Notes from Makefiles top comment block {{{1
 #
@@ -103,7 +104,7 @@
 #	  features (but not the interfaces just mentioned).
 #	- Uncomment the line with --disable-acl to disable ACL support even
 #	  though your system supports it.
-#	- Uncomment the line with --disable-gpm to disable gpm support
+#	- Uncomment the line with --disable-gpm to disable pm support
 #	  even though you have gpm libraries and includes.
 #	- Uncomment the line with --disable-sysmouse to disable sysmouse
 #	  support even though you have /dev/sysmouse and includes.
@@ -238,22 +239,48 @@
 --- end 1.3 --- }}} 
 --- end 1.0 --- }}} 
 
-/* --- Section B ---
+						--- Section B ---
+/* 
  * --- First Time Going Through Makefile ---
- * Notes and things to note and adjust from going through the Makefile,
+ *
+ * Notes and things to note or adjust from going through the Makefile,
  * should have been Makefile from the src/ before configure was ran iirc.
+ */
+/* 2.0 - First Time Going Through Makefile {{{1
+ *
+ * This does not cover all the things in the Makefile, just what i wanted to
+ * enable, disable, or note for the vim9 build i want to craft for my system.
+ *
+ * # NOTE - post going through Makefile: 
+ * Some changes may best be done with the configure script file passing
+ * flags/options through there instead.
+ * At the moment it does seem configure does craft a new Makefile instead of
+ * editing the existing one. One note says it may make Makefile.in.
+ * I need to go through the top level and src/ Makefiles and see how exactly it
+ * is calling configure and do a dry run to see how the Makefile thats produced
+ * ends up as.
+ *
+ * currently unsure if configure handles other parts of the build edit 
+ * instructions that are at the top of the Makefile (A.1.0) such as editing 
+ * features.h  I am looking into the process more but these will be good refs 
+ * for flags and things.
  *
  * first time going through Vim from source.
  * Started going through the Makefile: May 5 2023
  */
-/*	-OPTIONS May 5 2023 build fun Ubuntu 22.04 {{{1
+/* 2.1 - -OPTIONS : May 5 2023 build fun Ubuntu 22.04 {{{2
  * Stuff that got toyed with for vim build,
  * Started this vim from source w/ features May 5 2023
  * These settings are for the build started to be worked on May 5 2023
  *
- * Line #'s may not be accurate in future or if Makefile edits change place
+ * See UPDATE: Line #'s may not be accurate in future or if Makefile edits change place
  * in the future. It will get you in the right spot tho i am sure. It is the
  * line # as i took the note
+ * UPDATE: I dont know when it happened, but i am looking over a copy of the
+ *		   original Makefile i saved and the line numbers are off by a larger
+ *		   margin. Likely happened when i hit ./configure and forgot --help );
+ *		   So line numbers dont mean much. If i make more additions ill likely
+ *		   omit the line number
  *
  * If no # is present, the line was uncommented.
  * If # is present, the line was commented.
@@ -288,6 +315,10 @@ line # : Line content // my comment
 // Went with dynamic for now below for including python support
 441: CONF_OPT_PYTHON3 = --enable-python3interp=dynamic 
 
+//# CSCOPE
+//# Uncomment this when you want to include the Cscope interface.
+488: CONF_OPT_CSCOPE = --enable-cscope
+
 // NETBEANS - NetBeans interface. Only works with Motif, GTK, and gnome.
 470: CONF_OPT_NETBEANS = --disable-netbeans
 
@@ -315,6 +346,14 @@ line # : Line content // my comment
 // FONTSET - X fontset support for output of languages with many characters.
 // Uncomment this when you want to output a multibyte language.
 504: CONF_OPT_OUTPUT = --enable-fontset
+
+// gpm - For mouse support on Linux console via gpm
+// Uncomment this when you do not want to include gpm support, even
+// though you have gpm libraries and includes.
+// For Debian/Ubuntu gpm support requires the libgpm-dev package.
+# CONF_OPT_GPM = --disable-gpm
+// Use this to enable dynamic loading of the GPM library.
+CONF_OPT_GPM = --enable-gpm=dynamic
 
 // ACL - Uncomment this when you do not want to include ACL support, even
 // though your system does support it.  E.g., when it's buggy.
@@ -359,18 +398,17 @@ line # : Line content // my comment
  **** This section ended ater line 572, where COMPILER used can be overriden
  **** from the configure by the Makefile
  ****/
-}}}
+--- end 2.1 --- }}} 
 
-/* May 5 2023 build fun Ubuntu 22.04 cont. CFLAGS n Stuff {{{1
+/* 2.2 - Compiler n  CFLAGS n Stuff : May 5 2023 build fun Ubuntu 22.04 {{{2
  *
  *	This goes down the vim/src/Makefile
  *	line 573 
  *	goes into more compiler stuff outside of what was being done in -OPTIONS
  *	block of notes
  */
-}}}
 
-// COMPILER - Name of the compiler {{{1
+// COMPILER - Name of the compiler
 // The default from configure will mostly be fine, no need to change this, just
 // an example. If a compiler is defined here, configure will use it rather than
 // probing for one. It is dangerous to change this after configure was run.
@@ -378,7 +416,6 @@ line # : Line content // my comment
 // another compiler.  It is wise to run 'make reconfig' to start all over
 // again.
 582: #CC = gcc
-
 
 /* 
  * NOTE CFLAGS: Something i noticed about the commented out definitions of 
@@ -403,22 +440,19 @@ line # : Line content // my comment
 
 // GCC 5 and later need the -no-pie argument.
 661: PROFILE_LIBS = -no-pie # -pg -no-pie // after '#' is the original code
-}}}
+--- end 2.2 --- }}} 
 
-/* Specific systems, check if yours is listed {{{1
+/* 2.3 - Specific systems, check if yours is listed {{{2
  *
  * Starts on line 724
- *
- *
  *
  * ### Uncomment things here only if the values chosen by configure are wrong.
  * ### It's better to adjust configure.ac and "make autoconf", if you can!
  * ### Then send the required changes to configure.ac to the bugs list.
  */
-}}}
+--- end 2.3 --- }}}
 
-/* Permissions for binary section */ {{{1
-
+/* 2.4 - Permissions for binary section */ {{{2
 // If you are using Linux, you might want to use this to make vim the
 // default vi editor, it will create a link from vi to Vim when doing
 // "make install".  An existing file will be overwritten!
@@ -427,4 +461,4 @@ line # : Line content // my comment
 // Figured i would do this. Why not? -_-;
 1189: LINKIT = ln -f -s $(DEST_BIN)/$(VIMTARGET) $(DESTDIR)/usr/bin/vi
 1190: #LINKIT = @echo >/dev/null
-}}}
+--- end 2.4 --- }}}

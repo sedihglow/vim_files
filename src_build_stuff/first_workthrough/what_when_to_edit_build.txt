@@ -7,4 +7,6 @@
 ---- See notes from ./install_doc_notes.txt along side this.
 
 - First understanding going through docs so
-make - runs configure, would th
+make - runs configure
+make - second run will build the thing
+make install - install the thing.

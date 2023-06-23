@@ -1,0 +1,15 @@
+---
+This document contains notes about ctags in Vim
+
+Vim Documentation: https://vimhelp.org/
+Vim src: ./runtime/doc/
+
+Other docs:
+	Vim src: ./runtime/doc/
+
+
+help shell term (!cmd :!)
+usr_21.txt
+---
+
+
