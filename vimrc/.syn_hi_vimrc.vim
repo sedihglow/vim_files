@@ -192,14 +192,14 @@ hi CursorLine cterm=bold term=bold
 
 " FINAL THOUGHTS "{{{2
 "syn region myFold start="{" end="}" transparent fold
-hi Search term=reverse ctermfg=0 ctermbg=11
-hi LineNr term=underline ctermfg=244 ctermbg=232
-hi MatchParen ctermfg=15 ctermbg=242
-hi String ctermfg=10
-hi Constant ctermfg=14
-hi Identifier ctermfg=14
-hi Operator ctermfg=13
-hi NonText cterm=NONE ctermfg=NONE
-hi Search cterm=bold ctermbg=99 ctermfg=17
+" hi Search term=reverse ctermfg=0 ctermbg=11
+" hi LineNr term=underline ctermfg=244 ctermbg=232
+" hi MatchParen ctermfg=15 ctermbg=242
+" hi String ctermfg=10
+" hi Constant ctermfg=14
+" hi Identifier ctermfg=14
+" hi Operator ctermfg=13
+" hi NonText cterm=NONE ctermfg=NONE
+" hi Search cterm=bold ctermbg=99 ctermfg=17
 
 syntax on
