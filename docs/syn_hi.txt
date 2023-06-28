@@ -1,15 +1,45 @@
 ---
 This document contains notes about syntax highlighting
 
-Vim Documentation: 
+Vim Documentation:
 	https://vimhelp.org/
 
-Vim src: 
+Vim src:
 	./runtime/doc/syntax.txt
-	./runtime/doc/usr_44.txt
 	./runtime/doc/usr_06.txt introduces syntax highlighting.
+	./runtime/doc/usr_44.txt
+C:
+    ./runtime/doc/syntax/autodoc.vim
+    ./runtime/doc/syntax/c.vim
+        - See c_autodoc var and activation
 
 Other docs:
 	Vim src: ./runtime/doc/
 ---
+
+3. Write the Vim syntax file.  Or download one from the internet.  Then write
+   it in your syntax directory.  For example, for the "mine" syntax: >
+	:w ~/.vim/syntax/mine.vim
+
+Now you can start using your syntax file manually: >
+	:set syntax=mine
+You don't have to exit Vim to use this.
+
+If you also want Vim to detect the type of file, see |new-filetype|.
+
+If you are setting up a system with many users and you don't want each user
+to add the same syntax file, you can use another directory from 'runtimepath'.
+
+6.  Defining a syntax		|:syn-define|
+
+---- c_autodoc : autodoc.txt ----
+- cannot find a help file documentation for it with a quick try
+
+- There appears to be no real information on this file. Did a google search
+  and nothing came up right away other than one other person asking about it
+  and no one having an answer.
+
+  It says its an embedded parser, used in particular for C comments and
+  documentation in the code itself. Could be used for extracting documentation
+  from code? There may be plugins that do it.
 

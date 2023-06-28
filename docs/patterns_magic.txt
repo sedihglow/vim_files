@@ -1,0 +1,24 @@
+---
+This document contains notes primarily about the magic option sets which
+leads into some talk about patterns.
+
+Vim Documentation:
+	https://vimhelp.org/
+    help magic
+
+Vim src:
+	./runtime/doc/
+	./runtime/doc/
+
+Other resources:
+
+---
+
+                            -- magic --
+If a character is taken literally or not depends on the 'magic' option and the
+items in the pattern mentioned next.  The 'magic' option should always be set,
+but it can be switched off for Vi compatibility.  We mention the effect of
+'nomagic' here for completeness, but we recommend against using that.
+
+
+

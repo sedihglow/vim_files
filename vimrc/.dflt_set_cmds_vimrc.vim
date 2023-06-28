@@ -23,7 +23,7 @@ set cursorline
 set history=3000
 set laststatus=2
 set linebreak
-"set magic "enable magic
+set magic 
 set maxmem=100000 "24MB
 set noautowrite
 "set expandtab
@@ -62,8 +62,9 @@ set smartcase
 set showmatch
 set diffopt=filler,iwhite
 set stal=2
-set formatoptions=cro
+set formatoptions=tcro
 set autochdir
+set textwidth=80 " textwidth
 
 if exists('+colorcolumn')
     set colorcolumn=80
