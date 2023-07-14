@@ -1,8 +1,5 @@
 " This vimrc is what gets called when opening vim. (~/.vimrc)
-
-" TODO: Dont make the paths direct if possible, or if they are not found in
-" the standard location ~/.vim/... doing this is low prio and a bit of a maybe
-" after thinking about it.
+" This vimrc is for the test_tree legacy testing
 
 " set syntax highlighting settings
 source ~/.vim/vimrc_files/.syn_hi_vimrc.vim

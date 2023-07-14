@@ -1,0 +1,36 @@
+---
+This document is going over writig library scripts, sourcing homebrewed
+functions outside of the plugin directory and only sourcing when the function
+is being called instead of at startup.
+
+it will also cover import/export information
+
+Vim Documentation:
+	https://vimhelp.org/
+	help usr-52.txt
+	help 52.3 Autoloading without import/export /* TODO: see about im/ex */
+	help write-library-script /* This is start of 52.3 */
+
+Vim src:
+	./runtime/doc/
+	./runtime/doc/
+
+Other resources:
+
+---
+
+		--- Export and import ---
+
+A script files has private items used only locally in the script.
+It also has items that are exported, which can be used by scripts which import
+them. Scope baby.
+
+- Example of script with exported and private function in it
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+---
+This document contains notes about regular expressions for paths and such.
+It will also contain information about functions such as glob which expands
+wildcard values (*, **).
+
+
+Vim Documentation:
+        https://vimhelp.org/
+	help glob()
+	help fnameescape()
+	help wildcard
+	help builtin.txt
+
+Vim src:
+        ./runtime/doc/
+        ./runtime/doc/
+
+Other resources:
+
+---

@@ -1,0 +1,31 @@
+---
+This document contains notes about diagraphs and the i_ctrl_V ways to insert
+non ascii characters such as the symbol for the unit Ohms (<insert ohm here>)
+in Vim
+
+
+Vim Documentation:
+	https://vimhelp.org/
+	https://vimhelp.org/
+	https://vimhelp.org/
+	https://vimhelp.org/
+
+	:digraph // show currently defined digraphs.
+	help digraph
+	help i_CTRL-V
+	help i_CTRL-Q
+	help i_CTRL-V_digit
+
+Vim src:
+	./runtime/doc/usr_24.txt
+	./runtime/doc/
+
+Other resources:
+	https://vim.fandom.com/wiki/
+---
+
+Digraphs are used to enter characters that normally cannot be entered by
+an ordinary keyboard.  These are mostly printable non-ASCII characters.  The
+digraphs are easier to remember than the decimal number that can be entered
+with CTRL-V (see |i_CTRL-V|).
+

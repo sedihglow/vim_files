@@ -1,0 +1,16 @@
+---
+This document will go over functionalitys in the read family.
+:r will place the contents of a file under your curor!
+
+- TODO NOTE: This may be in line with how johnny boy executed a shell
+  command and got its input into the file being edited in vim
+
+Vim Documentation:
+	https://vimhelp.org/
+
+Vim src:
+	./runtime/doc/
+	./runtime/doc/
+---
+
+

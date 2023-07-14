@@ -1,0 +1,32 @@
+---
+I randomly am looking at vim9 doc and jotting down bullshit for organization
+and stuff later.
+
+Vim Documentation:
+	https://vimhelp.org/
+
+Vim src:
+	./runtime/doc/vim9.txt
+	./runtime/doc/
+
+Other resources:
+	https://vim.fandom.com/wiki/
+---
+
+If you do it like this, you get an error at compile time that "PluginFunc"
+does not exist, even when "g:loaded_plugin" does not exist: >
+	def CallPluginFunc()
+	  if exists('g:loaded_plugin')
+	    PluginFunc()   # Error - function not found
+	  endif
+	enddef
+
+You can use exists_compiled() to avoid the error, but then the function would
+not be called, even when "g:loaded_plugin" is defined later: >
+	def CallPluginFunc()
+	  if exists_compiled('g:loaded_plugin')
+	    PluginFunc()   # Function may never be called
+	  endif
+	enddef
+
+
