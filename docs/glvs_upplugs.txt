@@ -1,0 +1,12 @@
+---
+This document contains
+
+Vim Documentation:
+	https://vimhelp.org/
+
+Vim src:
+	./runtime/doc/
+
+Other resources:
+
+---

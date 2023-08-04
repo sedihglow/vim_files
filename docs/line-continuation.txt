@@ -1,0 +1,15 @@
+---
+This document contains notes regarding line continuation, aka multi-line
+commands/lines of code.
+
+Vim Documentation:
+	https://vimhelp.org/
+	help line-continuation
+
+Vim src:
+	./runtime/doc/develop.txt
+
+Other resources:
+	https://vim.fandom.com/wiki/
+---
+

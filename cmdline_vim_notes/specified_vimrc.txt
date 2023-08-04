@@ -9,3 +9,36 @@ a alias seems low effort for a quickie solution.
 instead of alias idea, is there a way to just set it up in general?
 - might still be worth doing a script to install the vimrc and paths etc. in
   the repo.
+
+
+--- Starting at last cursor position, option: -c [cmd] ---
+
+Interesting idea to always default to last cursor position regardless if
+the session is saved up. (Probably assumes that the viminfo file is set up in
+a way so the markers are valid.)
+
+						help *viminfo-file-marks*
+
+Uppercase marks ('A to 'Z) are stored when writing the viminfo file.  The
+numbered marks ('0 to '9) are a bit special.  When the viminfo file is written
+(when exiting or with the ":wviminfo" command), '0 is set to the current cursor
+position and file.  The old '0 is moved to '1, '1 to '2, etc.  This
+resembles what happens with the "1 to "9 delete registers.  If the current
+cursor position is already present in '0 to '9, it is moved to '0, to avoid
+having the same position twice.  The result is that with "'0", you can jump
+back to the file and line where you exited Vim.  To do that right away, try
+using this command: >
+
+	vim -c "normal '0"
+
+In a csh compatible shell you could make an alias for it: >
+
+	alias lvim vim -c '"'normal "'"0'"'
+
+For a bash-like shell: >
+
+	alias lvim='vim -c "normal '\''0"'
+
+Use the "r" flag in 'viminfo' to specify for which files no marks should be
+remembered.
+

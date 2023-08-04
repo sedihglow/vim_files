@@ -1,0 +1,16 @@
+---
+This document contains notes from tag-security, trojan-horse and if applicable
+sandbox. this document should go down the hole of vim documentation about
+security.
+
+Vim Documentation:
+	https://vimhelp.org/
+	help tag-security, trojan-horse, *potentially* sandbox
+
+Vim src:
+	./runtime/doc/
+
+Other resources:
+	https://vim.fandom.com/wiki/
+---
+

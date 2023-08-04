@@ -1,0 +1,18 @@
+---
+This document contains notes about ctags in Vim
+
+For notes on using tags with documentation (text files etc. like Vim docs)
+see ./doc_tags.txt
+
+Vim Documentation:
+	https://vimhelp.org/
+	help develop.txt, coding-style
+
+Vim src:
+	./runtime/doc/develop.txt
+
+Other resources:
+	https://vim.fandom.com/wiki/
+
+---
+

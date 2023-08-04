@@ -9,6 +9,9 @@
 # if .vimrc exists, store it somewhere in case they want to revert
 #	- have a functionality to revert?? If reasonable.
 
+# Write something to build the test directory tree as well if it does not exist.
+# Make this shit legit so you never have to do it again!
+
 # Check if home dir .vimrc exists
 if [[ -e "../.vimrc" ]]; then
 	echo "../.vimrc already exists"
@@ -52,8 +55,6 @@ ln -s "$(realpath ./.dflt_set_cmds_vimrc.vim)" \
 	../.vim/vimrc/.dflt_set_cmds_vimrc.vim
 ln -s "$(realpath ./.syn_hi_vimrc.vim)" \
 	../.vim/vimrc/.syn_hi_vimrc.vim
-ln -s "$(realpath ../functions/path_string_examples.vim)" \
-	../.vim/scripts/path_string_examples.vim
+ln -s "$(realpath ../my_plugins/examples/path_string_examples.vim)" \
+	../.vim/examples/path_string_examples.vim
 
-#ln -s "$(realpath ../scripts_vim/function_files/)" \
-#	../.vim/scripts/

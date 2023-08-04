@@ -10,7 +10,10 @@ source ~/.vim/vimrc_files/.syn_hi_vimrc.vim
 " set general/initial set command settings
 source ~/.vim/vimrc_files/.dflt_set_cmds_vimrc.vim
 
-"To enable file type detection"
+" set the packadd pluggins and runtime file commands defaults
+source ~/.vim/vimrc_files/.packadd_includes.vim
+
+"To enable file type detection
 filetype on
 autocmd FileType c,cpp,python,text,make
 	\ autocmd BufWritePre <buffer> %s/\s\+$//e
@@ -33,4 +36,9 @@ augroup Makefile_Settings
     autocmd FileType make source ~/.vim/vimrc_files/.makefile_vimrc.vim
 augroup END
 
-source ~/.vim/vimrc_files/func_inc.vim
+"source ~/.vim/vimrc_files/func_inc.vim
+
+" source ~/git_repos/vim_files/scripts_vim/function_files/trans_win.vim
+source ~/git_repos/vim_files/scripts_vim/function_files/precedence_table.vim
+source
+	\ ~/git_repos/vim_files/scripts_vim/function_files/vim9/dev/v9_trans_win.vim

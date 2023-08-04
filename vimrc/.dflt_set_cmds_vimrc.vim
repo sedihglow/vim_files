@@ -1,6 +1,9 @@
 " Holds the set commands that are called in general before filetype specific
 " calls to other .vim settings
 
+" Newly noticed interesting commands
+" set wrapscan --> set ws, searches wrap around the EOF, allies to ]s and [s
+
 "set backup
 "set backupcopy=auto
 set swapfile
@@ -53,9 +56,12 @@ set commentstring=#%s
 set tabpagemax=55
 set showtabline=2
 set smarttab
+
+" TODO: play with fold settings
 set foldmethod=marker
 set foldenable
-set foldcolumn=3
+set foldcolumn=1
+
 set incsearch
 set sc
 set smartcase
@@ -70,4 +76,3 @@ if exists('+colorcolumn')
     set colorcolumn=80
 endif
 
-runtime! ftplugin/man.vim

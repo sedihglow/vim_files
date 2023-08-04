@@ -1,0 +1,67 @@
+I was in options.txt via the help menu.
+
+-------------
+What happened
+
+- Hit some shit with the ctrl button while trying to go to a tag.
+-*** The screen split and sent me to another place in options.txt.
+  - I am not sure the exact location in options.txt but it was not just a
+    spit of a file because it was not at the start and it was somewhere else
+    than the original location.
+- Original location had to do with comment bullshit
+-
+
+
+
+
+-------------
+
+.. i forgot what the page was. --;
+
+I hit some shit,
+
+
+-- ctrl+" --
+maybe ctrl+" while over a tag, it jumped me twice when trying to recreate what
+happened.
+ - it jumped me to the top of the page
+   - did it again and it jumped me back to where i was  in options.txt
+     - Did not work after that, got an error, the error had something to do
+       with jumping to a marker
+
+
+Basically i dont think it was that
+
+       --- testing with ctrl+"
+(I coudt probably just find ctrl+" in the fucking help files.. sighlaughtsadfun)
+(p.s. of course theres a typo in sighlaughsadfun)
+
+-
+ i was on a line ish 1854 or maybe ish
+ it took me to line 1840 at the column where 'comments' begins on that line
+-
+ pressing it more, unsure if i moved the cursor line but probably did.
+	- Pressing ctrl+" x 2 does the sae as ctrl+(x2)"
+
+init - line 1854
+goes to visversa - line 1851
+-
+
+i am putting this at the bottom becuase this is where i will give up and fucking
+look at documentation. Because good shit has it, the best shit ignores it D:
+=====
+
+And here it is. ctl+" is not what i did tho for sure
+
+turns out cant find shit off the bat.
+
+-
+so AI is a stupid fuck. And even chatgtp3 is better than bard giving me fake
+bullshit. anyway,
+
+pressing ctrl+" does shit,
+but then i tried to ctrl+z, and it gave the marker error...
+
+ill try to pay attention when recreating it.
+E78 Unknown Marker *but probably without caps ;P*
+

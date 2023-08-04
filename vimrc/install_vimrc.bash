@@ -24,9 +24,18 @@ if [[ -e "$HOME/.vimrc" ]]; then
 	      ~/.vim/vimrc_files/.txt_vimrc.vim \
 	      ~/.vim/vimrc_files/.c_vimrc.vim \
 	      ~/.vim/vimrc_files/.py_vimrc.vim \
-		  ~/.vim/vimrc_files/func_inc.vim
+		  ~/.vim/vimrc_files/func_inc.vim \
+		  ~/.vim/vimrc_files/packadd_includes.vim
 fi
 
+
+# Make the paths
+# TODO: Give option for custom path, this non-plugin default path or just the
+# plugin files. Theres issues with them all
+if [[ -e "$HOME/vimrc_files" ]]; then
+	
+
+fi
 
 # TODO: Look into realpath's options and see how to make this more robust using 
 # them if possible
@@ -55,5 +64,9 @@ ln -s "$(realpath ./.syn_hi_vimrc.vim)" \
 	~/.vim/vimrc_files/.syn_hi_vimrc.vim
 ln -s "$(realpath ../scripts_vim/func_inc.vim)" \
 	~/.vim/vimrc_files/func_inc.vim
+ln -s "$(realpath ../scripts_vim/function_files/)" \
+	~/.vim/vimrc_files/scripts/
+
+
 ln -s "$(realpath ../scripts_vim/function_files/)" \
 	~/.vim/vimrc_files/scripts/

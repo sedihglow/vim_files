@@ -1,15 +1,5 @@
 " The toggle transparent function 
 
-" TODO: Figure out a way to change the gnome-terminal opaticity either via
-"	    vimscript on top or with an os key setting that can be set elsewhere
-"		like bash/sh
-
-
-" TODO: 
-" - Check if prev_cterm_bg had values and is filled. maybe a flag? May resolve
-" 
-"		
-
 let s:hi_group_names = [
 						\ "Normal"	  ,
 						\ "LineNr"	  ,
@@ -25,46 +15,75 @@ let s:prev_cterm_bg = {}
 
 " TODO: Function to add/remove a group name to the trans_hi_groups
 
+function! Test_empty()
+		let spkey = "SpecialKey"
+		let hi_group_id = hlID(spkey)
+		let s:prev_cterm_bg[spkey] = synIDattr(synIDtrans(spkey),"bg")
+
+		if s:prev_cterm_bg[spkey] == "" 
+			echo "empty string found"
+		else
+			echo "--- no empty string: printing the result ---"
+			echo s:prev_cterm_bg[spkey]
+		endif
+
+endfunction
+
 " for transparent background
-function! Transparent_switch()
+function! Dev_transparent()
 	"go through highlight groups
 	for hi_group in s:hi_group_names
 		let hi_group_id = hlID(hi_group)
 		let s:prev_cterm_bg[hi_group] = synIDattr(synIDtrans(hi_group_id),"bg")
-
-		" If the resulting bg is non-existant a empty string is returned.
-		" If an empty string is found, replace it with 'none' to use in an
-		" exec command when switching back. Using just empty string causes an
-		" error with :hi .... ctermbg=''
-		if s:prev_cterm_bg[hi_group] == "" 
-			let s:prev_cterm_bg[hi_group] = "none"
-		endif
-
 		execute "highlight" hi_group  "ctermbg=none"
 	endfor
-	" set nocursorline
 endfunction
 " autocmd ColorScheme * call AdaptColorscheme()
 
-" Switch back to opaque from a previous call to switch_transparent
-function! Transparent_back()
+function! Switch_back()
+	set cursorline
+
 	for hi_group in s:hi_group_names
-		execute "highlight" hi_group  "ctermbg=" .. s:prev_cterm_bg[hi_group]
-	endfor
-	" set cursorline
+	
+
+		" If the resulting bg is non-existant a empty string is returned.
+		" If an empty string is found, replace it with "none" to use in an
+		" exec command
+		if s:prev_cterm_bg[hi_group] == "" 
+			s:prev_cterm_bg[hi_group] = "none"
+		endif
+
+
 endfunction
 
+" Save the highlight group settings that get changed in Switch_transparent()
+" - unlikely: save to a file and read the file back when we go back and forth
+" - likely: Build a dictionary using synIDattr and return it to be used to set
+"	the values later.
+" - kinda likely: Build a list which contains values for arguments based on its 
+"	index. This would include empty strings which are returned when a option is
+"	not set or available for a given hilight group.
+" - just do both :D
+
+" This needs to turn into something better but for now just throwing the shit
+" in.
+function! Store_hi_settings()
+
+endfunction
+	
 " Allows the ability to toggle transparency (no gvim currently)
-let s:is_trans = 0
-function! Transparent_toggle()
-	if s:is_trans == 0
+let g:is_trans = 1
+function! Toggle_transparent()
+	if g:is_trans == 0
 		" Sets term vim to transparent
-		call Transparent_switch()
-		let s:is_trans = 1
+		call Switch_transparent()
+		" save the changed groups values.
+
+		let g:is_trans = 1
 	else
 		" Sets term vim to opaque
-		call Transparent_back()
-		let s:is_trans = 0
+		hi Normal ctermbg=black
+		let g:is_trans = 0
 	endif
 endfunction
 " nnoremap <C-t> : call Toggle_transparent()<CR>
