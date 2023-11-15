@@ -19,4 +19,21 @@ Vim src:
 	./runtime/doc/
 ---
 
+:set wrap
+changed how displayed.  It doesn't change the text buffer, see 'textwidth' for that.
 
+
+
+To make scrolling horizontally a bit more useful, try this: >
+		:set sidescroll=5
+		:set listchars+=precedes:<,extends:>
+	See 'sidescroll', 'listchars' and |wrap-off|.
+	This option can't be set from a |modeline| when the 'diff' option is
+
+
+The line will be broken in the middle of a word if necessary.  See
+'linebreak' to get the break at a word boundary.
+
+--------------
+
+'linebreak'

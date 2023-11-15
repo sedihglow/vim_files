@@ -1,0 +1,62 @@
+---
+This document contains stuff involving that one line of code and line and stuff
+
+Vim Documentation:
+	https://vimhelp.org/
+	help line BufReadPost/BufRead
+
+Vim src:
+	./runtime/doc/
+	./runtime/doc/
+---
+
+=== the line of code ===
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+\ | exe "normal! g'\"" | endif
+
+=== stuff ===
+*BufRead* *BufReadPost*
+BufRead or BufReadPost		When starting to edit a new buffer, after
+				reading the file into the buffer, before
+				executing the modelines.  See |BufWinEnter|
+				for when you need to do something after
+				processing the modelines.
+				Also triggered:
+				- when writing an unnamed buffer in a way that
+				  the buffer gets a name
+				- after successfully recovering a file
+				- for the filetypedetect group when executing
+				  ":filetype detect"
+				Not triggered:
+				- for the `:read file` command
+				- when the file doesn't exist
+
+
+line({expr} [, {winid}])				*line()*
+		The result is a Number, which is the line number of the file
+		position given with {expr}.  The {expr} argument is a string.
+		The accepted positions are:			 *E1209*
+		    .	    the cursor position
+	==--	     $	    the last line in the current buffer
+		    'x	    position of mark x (if the mark is not set, 0 is
+			    returned)
+		    w0	    first line visible in current window (one if the
+			    display isn't updated, e.g. in silent Ex mode)
+		    w$	    last line visible in current window (this is one
+			    less than "w0" if no lines are visible)
+		    v	    In Visual mode: the start of the Visual area (the
+			    cursor is the end).  When not in Visual mode
+			    returns the cursor position.  Differs from |'<| in
+			    that it's updated right away.
+
+==== This is the '\" stuff ====
+					*'quote* *`quote*
+'"  `" To the cursor position when last exiting the current
+       buffer.  Defaults to the first character of the first
+       line.  See |last-position-jump| for how to use this
+       for each opened file.
+       Only one position is remembered per buffer, not one
+       for each window.  As long as the buffer is visible in
+       a window the position won't be changed.
+
+

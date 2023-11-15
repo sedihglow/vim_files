@@ -66,7 +66,5 @@ ln -s "$(realpath ../scripts_vim/func_inc.vim)" \
 	~/.vim/vimrc_files/func_inc.vim
 ln -s "$(realpath ../scripts_vim/function_files/)" \
 	~/.vim/vimrc_files/scripts/
-
-
 ln -s "$(realpath ../scripts_vim/function_files/)" \
 	~/.vim/vimrc_files/scripts/

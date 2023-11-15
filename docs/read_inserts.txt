@@ -1,16 +1,38 @@
 ---
 This document will go over functionalitys in the read family.
-:r will place the contents of a file under your curor!
-
-- TODO NOTE: This may be in line with how johnny boy executed a shell
-  command and got its input into the file being edited in vim
+:r will place the contents of a file under your cursor!
 
 Vim Documentation:
 	https://vimhelp.org/
+	help read read-messages ...
 
 Vim src:
 	./runtime/doc/
 	./runtime/doc/
 ---
+10. Inserting a file					*inserting-file*
+
+							*:r* *:re* *:read*
+
+:r[ead] [++opt] [name]
+			Insert the file [name] (default: current file) below
+			the cursor.
+			See |++opt| for the possible values of [++opt].
+
+:{range}r[ead] [++opt] [name]
+			Insert the file [name] (default: current file) below
+			the specified line.
+			See |++opt| for the possible values of [++opt].
+
+							*:r!* *:read!*
+:[range]r[ead] [++opt] !{cmd}
+			Execute {cmd} and insert its standard output below
+			the cursor or the specified line.  A temporary file is
+			used to store the output of the command which is then
+			read into the buffer.  'shellredir' is used to save
+			the output of the command, which can be set to include
+			stderr or not.  {cmd} is executed like with ":!{cmd}",
+			any '!' is replaced with the previous command |:!|.
+			See |++opt| for the possible values of [++opt].
 
 

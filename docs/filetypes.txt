@@ -13,5 +13,5 @@ Vim src:
 ---
 
 
--- Just throwing this hear, saw it under CHANGELOG ft-changelog-plugin
-'formatoptions'		the 't' flag is added to wrap when inserting text.
+-- Just throwing this here, saw it under CHANGELOG ft-changelog-plugin
+'formatoptions' the 't' flag is added to wrap when inserting text.

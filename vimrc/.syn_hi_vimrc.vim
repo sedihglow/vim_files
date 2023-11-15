@@ -184,7 +184,7 @@ hi StatusLineNC ctermfg=White ctermbg=green cterm=NONE
 hi CursorLine cterm=bold term=bold
 
 " FINAL THOUGHTS "{{{2
-"syn region myFold start="{" end="}" transparent fold
+" syn region myFold start="{" end="}" transparent fold
 " hi Search term=reverse ctermfg=0 ctermbg=11
 " hi LineNr term=underline ctermfg=244 ctermbg=232
 " hi MatchParen ctermfg=15 ctermbg=242

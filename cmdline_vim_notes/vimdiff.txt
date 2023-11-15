@@ -1,0 +1,2 @@
+open with a vim diff from cmdlin
+	vim -d file1 file2 [file3 [file4]]

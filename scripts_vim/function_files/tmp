@@ -1,0 +1,91 @@
+red function
+1: /etc/vim/vimrc
+  2: /usr/share/vim/vim90/debian.vim
+  3: /usr/share/vim/vim90/syntax/syntax.vim
+  4: /usr/share/vim/vim90/syntax/synload.vim
+  5: /usr/share/vim/vim90/syntax/syncolor.vim
+  6: /usr/share/vim/vim90/colors/lists/default.vim
+  7: /usr/share/vim/vim90/filetype.vim
+  8: /usr/share/vim/vim90/scripts.vim
+  9: /usr/share/vim/vim90/autoload/dist/script.vim
+ 10: ~/.vimrc
+ 11: ~/.vim/vimrc_files/.syn_hi_vimrc.vim
+ 12: /usr/share/vim/vim90/syntax/nosyntax.vim
+ 13: ~/.vim/vimrc_files/.dflt_set_cmds_vimrc.vim
+ 14: ~/.vim/vimrc_files/.packadd_includes.vim
+ 15: /usr/share/vim/vim90/ftplugin/man.vim
+ 16: ~/git_repos/vim_files/scripts_vim/function_files/precedence_table.vim
+ 17: ~/git_repos/vim_files/scripts_vim/function_files/vim9/dev/v9_trans_win.vim
+ 18: /usr/share/vim/vim90/plugin/getscriptPlugin.vim
+ 19: /usr/share/vim/vim90/plugin/gzip.vim
+ 20: /usr/share/vim/vim90/plugin/logiPat.vim
+ 21: /usr/share/vim/vim90/plugin/manpager.vim
+ 22: /usr/share/vim/vim90/plugin/matchparen.vim
+ 23: /usr/share/vim/vim90/plugin/netrwPlugin.vim
+ 24: /usr/share/vim/vim90/plugin/rrhelper.vim
+ 25: /usr/share/vim/vim90/plugin/spellfile.vim
+ 26: /usr/share/vim/vim90/plugin/tarPlugin.vim
+ 27: /usr/share/vim/vim90/plugin/tohtml.vim
+ 28: /usr/share/vim/vim90/plugin/vimballPlugin.vim
+ 29: /usr/share/vim/vim90/plugin/zipPlugin.vim
+ 30: /usr/share/vim/vim90/autoload/netrw.vim
+ 31: ~/.vim/.netrwhist
+ 32: /usr/share/vim/vim90/syntax/netrw.vim
+ 33: /usr/share/vim/vim90/autoload/dist/ft.vim
+ 34: /usr/share/vim/vim90/syntax/sh.vim
+ 35: /usr/share/vim/vim90/syntax/vim.vim
+ 36: /usr/share/vim/vim90/syntax/python.vim
+ 37: :source buffer=10
+ 38: /usr/share/vim/vim90/syntax/help.vim
+
+non highlighted
+:scriptnames
+  1: /etc/vim/vimrc
+  2: /usr/share/vim/vim90/debian.vim
+  3: /usr/share/vim/vim90/syntax/syntax.vim
+  4: /usr/share/vim/vim90/syntax/synload.vim
+  5: /usr/share/vim/vim90/syntax/syncolor.vim
+  6: /usr/share/vim/vim90/colors/lists/default.vim
+  7: /usr/share/vim/vim90/filetype.vim
+  8: /usr/share/vim/vim90/autoload/dist/ft.vim
+  9: /usr/share/vim/vim90/syntax/sh.vim
+ 10: ~/.vimrc
+ 11: ~/.vim/vimrc_files/.syn_hi_vimrc.vim
+ 12: /usr/share/vim/vim90/syntax/nosyntax.vim
+ 13: ~/.vim/vimrc_files/.dflt_set_cmds_vimrc.vim
+ 14: ~/.vim/vimrc_files/.packadd_includes.vim
+ 15: /usr/share/vim/vim90/ftplugin/man.vim
+ 16: ~/git_repos/vim_files/scripts_vim/function_files/precedence_table.vim
+ 17: ~/git_repos/vim_files/scripts_vim/function_files/vim9/dev/v9_trans_win.vim
+ 18: /usr/share/vim/vim90/plugin/getscriptPlugin.vim
+ 19: /usr/share/vim/vim90/plugin/gzip.vim
+ 20: /usr/share/vim/vim90/plugin/logiPat.vim
+ 21: /usr/share/vim/vim90/plugin/manpager.vim
+ 22: /usr/share/vim/vim90/plugin/matchparen.vim
+ 23: /usr/share/vim/vim90/plugin/netrwPlugin.vim
+ 24: /usr/share/vim/vim90/plugin/rrhelper.vim
+ 25: /usr/share/vim/vim90/plugin/spellfile.vim
+ 26: /usr/share/vim/vim90/plugin/tarPlugin.vim
+ 27: /usr/share/vim/vim90/plugin/tohtml.vim
+ 28: /usr/share/vim/vim90/plugin/vimballPlugin.vim
+ 29: /usr/share/vim/vim90/plugin/zipPlugin.vim
+ 30: /usr/share/vim/vim90/autoload/netrw.vim
+
+ 31: ~/.vim/.netrwhist
+ 32: /usr/share/vim/vim90/syntax/netrw.vim
+ 33: /usr/share/vim/vim90/autoload/dist/man.vim
+ 34: /usr/share/vim/vim90/scripts.vim
+ 35: /usr/share/vim/vim90/autoload/dist/script.vim
+ 36: /usr/share/vim/vim90/syntax/man.vim
+ 37: /usr/share/vim/vim90/syntax/ctrlh.vim
+
+---- red
+ 32: /usr/share/vim/vim90/syntax/netrw.vim
+ 33: /usr/share/vim/vim90/autoload/dist/ft.vim
+ 34: /usr/share/vim/vim90/syntax/sh.vim
+ 35: /usr/share/vim/vim90/syntax/vim.vim
+ 36: /usr/share/vim/vim90/syntax/python.vim
+ 37: :source buffer=10
+ 38: /usr/share/vim/vim90/syntax/help.vim
+
+
